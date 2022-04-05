@@ -1,0 +1,24 @@
+:root {
+    --verde: #00EA27;
+    --azul: #0000FE;
+    --amarillo: #E2F102;
+    --roboto: RobotoPagina;
+}
+
+@font-face {
+    font-family: RobotoPagina;
+    src: url('./assets/Roboto/Roboto-Medium.ttf');
+}
+
+* {
+    font-family: var(--roboto);
+}
+
+.main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}

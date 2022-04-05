@@ -1,5 +1,5 @@
 import { Container, Form, Button } from "react-bootstrap";
-import { loginEmailPassword } from "../functions/loginEmailPassword";
+import { loginEmailPassword } from "../../functions/loginEmailPassword";
 
 const Login = () => {
   async function submitHandle(e) {
@@ -16,6 +16,7 @@ const Login = () => {
         <Form.Group controlId="formCorreo">
           <Form.Label>Correo electrónico</Form.Label>
           <Form.Control
+            className="mb-3"
             type="email"
             placeholder="Ingrese su correo electronico"
           />

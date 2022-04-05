@@ -1,0 +1,192 @@
+header {
+    max-width: 1140px;
+    width: 100%;
+    padding: 1rem;
+    margin: 0 4rem;
+    /* background-color: aquamarine; */
+}
+
+.container-header-img {
+    width: 300px;
+    top: 0px;
+    position: absolute;
+}
+
+.header-img {
+    width: 100%;
+}
+
+.container-header-txt {
+    text-align: center;
+}
+
+.container-header-txt h1 {
+    font-size: 3.5rem;
+}
+
+.container-header-txt span {
+    color: var(--verde);
+}
+
+/*Main*/
+
+main {
+    max-width: 1140px;
+    padding: 1rem;
+    margin: 0 4rem;
+    /* background-color: rebeccapurple; */
+    display: flex;
+    gap: 1rem;
+}
+
+main aside {
+    width: 20%;
+    padding-top: 4rem;
+    /* background-color: red; */
+    text-align: center;
+}
+
+main aside ul {
+    padding: 0;
+    list-style: none;
+}
+
+main aside ul > li:nth-child(1) {
+    color: var(--verde);
+}
+
+main aside ul > a{
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
+}
+
+main aside ul > a:hover{
+    color: var(--azul);
+}
+
+
+main aside ul > a:visited{
+    color: black;
+}
+
+main aside ul svg {
+    width: 20px;
+    margin-right: 5px;
+}
+
+/*Trabajos en conjunto*/
+
+.container-img-trab-conj {
+    width: 100%;
+}
+
+.img-trab-conj {
+    width: 100%;
+}
+
+/*Seccion trabajos*/
+
+.section-trabajos {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 370px 1fr 1fr;
+    /* background-color: beige; */
+}
+
+.section-trabajos > article {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    /* outline: 1px solid black; */
+}
+
+.section-trabajos > article > h3 {
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+    color: var(--verde);
+    padding: .3rem;
+}
+
+.section-trabajos > article:nth-child(1) > h3:nth-child(1) {
+    background-color: var(--verde);
+    color: white;
+}
+
+.container-trabajos-portfolio {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.container-img-portfolio {
+    width: 100%;
+    /* background-color: blue; */
+}
+
+.img-portfolio {
+    width: 100%;
+}
+
+/*SEccion grafica*/
+
+.container-img-graficos {
+    width: 180px;
+    /* background-color: aqua; */
+    margin-bottom: 1rem;
+}
+
+.img-graficos {
+    width: 100%;
+}
+
+/*Seccion fotografia*/
+
+.container-img-fotograficos {
+    width: 180px;
+    /* background-color: aqua; */
+    margin-bottom: 1rem;
+}
+
+.img-fotograficos {
+    width: 100%;
+}
+
+
+/*Footer*/
+
+footer {
+    max-width: 1140px;
+    margin: 0 4rem;
+    padding: 2rem;
+    /* background-color: brown; */
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--azul);
+}
+
+@media (max-width: 480px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-header-txt h1 {
+        font-size: 2rem;
+    }
+
+    .container-header-img {
+        width: 200px;
+        position: relative;
+    }
+}
+  

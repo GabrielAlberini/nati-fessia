@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 
 //Views
-import { Home } from "./views/Home";
-import { Login } from "./views/Login";
+import { Home } from "./Home";
+import { Login } from "./Login";
 
 //Importamos la aplicación/credenciales
-import firebaseApp from "./firebase/credenciales";
+import firebaseApp from "../../firebase/credenciales";
 
 // Conforme se necesite, importar los demás servicios y funciones. Por ejemplo:
 import { getAuth, onAuthStateChanged } from "firebase/auth";

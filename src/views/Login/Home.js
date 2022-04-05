@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { cerrarSesion } from "../functions/signOut";
+import { cerrarSesion } from "../../functions/signOut";
 import { Container, Stack, Button, Table } from "react-bootstrap";
-import { getAllProducts } from "../functions/getAllProducts";
-import { deleteProduct } from "../functions/deleteProduct";
-import { AñadirModal } from "../components/AñadirModal/AñadirModal";
-import { EditarModal } from "../components/EditarModal/EditarModal";
+import { getAllProducts } from "../../functions/getAllProducts";
+import { deleteProduct } from "../../functions/deleteProduct";
+import { AñadirModal } from "../../components/AñadirModal/AñadirModal";
+import { EditarModal } from "../../components/EditarModal/EditarModal";
 
 const Home = ({ usuario }) => {
   const [productos, setProductos] = useState([]);
