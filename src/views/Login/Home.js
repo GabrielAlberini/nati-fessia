@@ -1,29 +1,42 @@
 import { useEffect, useState } from "react";
 import { cerrarSesion } from "../../functions/signOut";
 import { Container, Stack, Button, Table } from "react-bootstrap";
-import { getAllProducts } from "../../functions/getAllProducts";
-import { deleteProduct } from "../../functions/deleteProduct";
+import {
+  getAllWorks,
+  getAllExperiment,
+  getAllFotografico,
+} from "../../functions/getAll";
+import { deleteExperiment, deleteWork, deleteFotografic } from "../../functions/delete";
 import { AñadirModal } from "../../components/AñadirModal/AñadirModal";
 import { EditarModal } from "../../components/EditarModal/EditarModal";
 
 const Home = ({ usuario }) => {
-  const [productos, setProductos] = useState([]);
+  const [portfolioWorks, setPortfolioWorks] = useState([]);
+  const [expetimentWork, setExpetimentWork] = useState([]);
+  const [fotograficWork, setFotograficWork] = useState([]);
   const [isModalAñadir, setIsModalAñadir] = useState(false);
   const [isModalEditar, setIsModalEditar] = useState(false);
   const [productoEDitar, setProductoEditar] = useState({});
 
-  function actualizarEstadoProductos() {
-    getAllProducts().then((listadoDeProductos) => {
-      setProductos(listadoDeProductos);
+  //Actualizar Trabajos de Portfolio
+  function updateWorks() {
+    getAllWorks().then((workList) => {
+      setPortfolioWorks(workList);
+    });
+    getAllExperiment().then((workList) => {
+      setExpetimentWork(workList);
+    });
+    getAllFotografico().then((workList) => {
+      setFotograficWork(workList);
     });
   }
 
-  function añadirProductoHome() {
+  function addWork() {
     setIsModalAñadir(true);
   }
 
   useEffect(() => {
-    actualizarEstadoProductos();
+    updateWorks();
   }, []);
 
   return (
@@ -31,13 +44,13 @@ const Home = ({ usuario }) => {
       <AñadirModal
         isModalAñadir={isModalAñadir}
         setIsModalAñadir={setIsModalAñadir}
-        actualizarEstadoProductos={actualizarEstadoProductos}
+        actualizarEstadoProductos={updateWorks}
       />
       {productoEDitar && (
         <EditarModal
           isModalEditar={isModalEditar}
           setIsModalEditar={setIsModalEditar}
-          actualizarEstadoProductos={actualizarEstadoProductos}
+          actualizarEstadoProductos={updateWorks}
           productoEditar={productoEDitar}
           setProductoEditar={setProductoEditar}
         />
@@ -53,33 +66,49 @@ const Home = ({ usuario }) => {
         <h1>¡Hola, Nati!</h1>
         <Button onClick={cerrarSesion}>Cerrar sesion</Button>
       </Stack>
-
       <hr />
-
-      <h2>Portfolio / Clientes</h2>
-
+      <Stack direction="horizontal" className="justify-content-between p-3">
+        <h2>Portfolio / Clientes</h2>
+        <Button onClick={addWork}> Añadir trabajo</Button>
+      </Stack>
+      <hr />
       <Table>
         <thead>
           <tr>
             <th>#</th>
-            <th>Título</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
-            <th>SKU</th>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Imágen resumen</th>
+            <th>Categoría</th>
+            <th>Web</th>
+            <th>Hashtag</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          {productos &&
-            productos.map((prod, index) => (
+          {portfolioWorks &&
+            portfolioWorks.map((prod, index) => (
               <tr key={prod.sku}>
                 <td>{index + 1}</td>
-                <td>{prod.titulo}</td>
-                <td>${prod.precio}</td>
-                <td>{prod.cantidad}</td>
                 <td>{prod.sku}</td>
+                <td>{prod.cliente}</td>
+                <td style={{ width: 100 }}>
+                  <img
+                    style={{ width: 100 }}
+                    src={prod.URLimagen}
+                    alt="imágen de trabajo"
+                  ></img>
+                </td>
+                <td>{prod.categoria}</td>
+                <td>
+                  <a href={prod.web} rel="noreferrer">
+                    {prod.web}
+                  </a>
+                </td>
+                <td>{prod.hashtag}</td>
                 <td>
                   <Button
+                    className="m-1"
                     variant="dark"
                     onClick={() => {
                       setProductoEditar({ ...prod });
@@ -91,8 +120,8 @@ const Home = ({ usuario }) => {
                   <Button
                     variant="danger"
                     onClick={() =>
-                      deleteProduct(prod).then((confirmacion) => {
-                        actualizarEstadoProductos();
+                      deleteWork(prod).then((confirmacion) => {
+                        updateWorks();
                       })
                     }
                   >
@@ -103,7 +132,120 @@ const Home = ({ usuario }) => {
             ))}
         </tbody>
       </Table>
-      <Button onClick={añadirProductoHome}> Añadir Producto</Button>
+      {/*|||||| EXPERIMENTOS GRÁFICOS ||||||*/}
+      <Stack direction="horizontal" className="justify-content-between p-3">
+        <h2>Experimento gráficos</h2>
+      </Stack>
+      <hr />
+      <Table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Imágen resumen</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {expetimentWork &&
+            expetimentWork.map((prod, index) => (
+              <tr key={prod.sku}>
+                <td>{index + 1}</td>
+                <td>{prod.sku}</td>
+                <td>{prod.cliente}</td>
+                <td style={{ width: 100 }}>
+                  <img
+                    style={{ width: 100 }}
+                    src={prod.URLimagen}
+                    alt="imágen de trabajo"
+                  ></img>
+                </td>
+                <td>{prod.categoria}</td>
+                <td>
+                  <Button
+                    className="m-1"
+                    variant="dark"
+                    onClick={() => {
+                      setProductoEditar({ ...prod });
+                      setIsModalEditar(true);
+                    }}
+                  >
+                    Editar
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() =>
+                      deleteExperiment(prod).then((confirmacion) => {
+                        updateWorks();
+                      })
+                    }
+                  >
+                    Borrar
+                  </Button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </Table>
+      {/*|||||| EXPERIMENTOS FOTOGRÁFICOS ||||||*/}
+      <Stack direction="horizontal" className="justify-content-between p-3">
+        <h2>Experimento fotográficos</h2>
+      </Stack>
+      <hr />
+      <Table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Imágen resumen</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {fotograficWork &&
+            fotograficWork.map((prod, index) => (
+              <tr key={prod.sku}>
+                <td>{index + 1}</td>
+                <td>{prod.sku}</td>
+                <td>{prod.cliente}</td>
+                <td style={{ width: 100 }}>
+                  <img
+                    style={{ width: 100 }}
+                    src={prod.URLimagen}
+                    alt="imágen de trabajo"
+                  ></img>
+                </td>
+                <td>{prod.categoria}</td>
+                <td>
+                  <Button
+                    className="m-1"
+                    variant="dark"
+                    onClick={() => {
+                      setProductoEditar({ ...prod });
+                      setIsModalEditar(true);
+                    }}
+                  >
+                    Editar
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() =>
+                      deleteFotografic(prod).then((confirmacion) => {
+                        updateWorks();
+                      })
+                    }
+                  >
+                    Borrar
+                  </Button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </Table>
     </Container>
   );
 };

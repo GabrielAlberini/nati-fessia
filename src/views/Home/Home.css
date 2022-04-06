@@ -107,6 +107,11 @@ main aside a:hover {
     color: white;
 }
 
+.link-trabajos-conjunto:hover {
+    color: white;
+    cursor: auto;
+}
+
 .lista-trabajo-conjunto {
     padding-left: 0;
 }
@@ -143,7 +148,6 @@ main aside a:hover {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    outline: 1px solid black;
 }
 
 .section-trabajos > article > h3 {
@@ -173,20 +177,28 @@ main aside a:hover {
     /* background-color: blue; */
 }
 
-.container-img-portfolio:hover {
-    transform: scale(2);
+.container-img-portfolio:hover,
+.container-img-graficos:hover,
+.container-img-fotograficos:hover {
+    transform: scale(1.5);
     cursor: pointer;
+    transition: .8s ease;
 }
 
 .img-portfolio {
     width: 100%;
 }
 
-.container-img-portfolio > h4 {
+.container-img-portfolio > h4,
+.container-img-graficos > h4,
+.container-img-fotograficos > h4 {
     display: none;
 }
 
-.container-img-portfolio:hover > h4 {
+.container-img-portfolio:hover > h4,
+.container-img-graficos:hover > h4,
+.container-img-fotograficos:hover > h4 {
+    width: 100%;
     font-size: 1rem;
     color: white;
     width: 100%;
@@ -238,6 +250,7 @@ footer {
     padding: 2rem;
     /* background-color: brown; */
     text-align: center;
+    font-size: .8rem;
 }
 
 footer a {

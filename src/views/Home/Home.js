@@ -1,6 +1,25 @@
+import { useEffect, useState } from "react";
+import { getAllWorks, getAllExperiment, getAllFotografico } from "../../functions/getAll";
 import "./Home.css";
 
 const Home = () => {
+  const [portfolio, setPortfolio] = useState([]);
+  const [experimentos, setExperimentos] = useState([]);
+  const [fotograficos, setFotograficos] = useState([]);
+
+  console.log(portfolio);
+  useEffect(() => {
+    getAllWorks().then((data) => {
+      setPortfolio(data);
+    });
+    getAllExperiment().then((data) => {
+      setExperimentos(data);
+    });
+    getAllFotografico().then((data) => {
+      setFotograficos(data);
+    });
+  }, []);
+
   return (
     <>
       <header>
@@ -84,59 +103,46 @@ const Home = () => {
           <article>
             <h3>PORTFOLIO / CLIENTES</h3>
             <div className="container-trabajos-portfolio">
-              <div className="container-img-portfolio">
-                <img
-                  className="img-portfolio"
-                  src="https://i.ibb.co/JC5ZHft/imagen-natifessia-Mesa-de-trabajo-1.png"
-                  alt=""
-                />
-                <h4>Hola</h4>
-              </div>
-              <div className="container-img-portfolio">
-                <img
-                  className="img-portfolio"
-                  src="https://i.ibb.co/JC5ZHft/imagen-natifessia-Mesa-de-trabajo-1.png"
-                  alt=""
-                />
-              </div>
+              {portfolio.map((work) => (
+                <div className="container-img-portfolio">
+                  <img
+                    className="img-portfolio"
+                    src={work.URLimagen}
+                    alt={work.URLimagen}
+                  />
+                  <h4>{work.cliente}</h4>
+                </div>
+              ))}
             </div>
           </article>
           <article>
             <h3>EXPERIMENTOS GRÁFICOS</h3>
             <div className="container-trabajos-graficos">
-              <div className="container-img-graficos">
-                <img
-                  className="img-graficos"
-                  src="https://i.ibb.co/JC5ZHft/imagen-natifessia-Mesa-de-trabajo-1.png"
-                  alt=""
-                />
-              </div>
-              <div className="container-img-graficos">
-                <img
-                  className="img-graficos"
-                  src="https://i.ibb.co/JC5ZHft/imagen-natifessia-Mesa-de-trabajo-1.png"
-                  alt=""
-                />
-              </div>
+            {experimentos.map((work) => (
+                <div className="container-img-graficos">
+                  <img
+                    className="img-graficos"
+                    src={work.URLimagen}
+                    alt={work.URLimagen}
+                  />
+                  <h4>{work.cliente}</h4>
+                </div>
+              ))}
             </div>
           </article>
           <article>
             <h3>EXPERIMENTOS FOTOGRÁFICOS</h3>
             <div className="container-trabajos-fotograficos">
-              <div className="container-img-fotograficos">
-                <img
-                  className="img-fotograficos"
-                  src="https://i.ibb.co/JC5ZHft/imagen-natifessia-Mesa-de-trabajo-1.png"
-                  alt=""
-                />
-              </div>
-              <div className="container-img-fotograficos">
-                <img
-                  className="img-fotograficos"
-                  src="https://i.ibb.co/JC5ZHft/imagen-natifessia-Mesa-de-trabajo-1.png"
-                  alt=""
-                />
-              </div>
+            {fotograficos.map((work) => (
+                <div className="container-img-fotograficos">
+                  <img
+                    className="img-fotograficos"
+                    src={work.URLimagen}
+                    alt={work.URLimagen}
+                  />
+                  <h4>{work.cliente}</h4>
+                </div>
+              ))}
             </div>
           </article>
         </section>
