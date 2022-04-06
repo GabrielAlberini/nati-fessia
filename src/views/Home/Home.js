@@ -72,15 +72,8 @@ const Home = () => {
                 <div className="container-img-trabajo-conjunto">
                   <img
                     className="img-trabajo-conjunto"
-                    src="http://c.files.bbci.co.uk/48DD/production/_107435681_perro1.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="container-img-trabajo-conjunto">
-                  <img
-                    className="img-trabajo-conjunto"
-                    src="http://c.files.bbci.co.uk/48DD/production/_107435681_perro1.jpg"
-                    alt=""
+                    src="https://i.ibb.co/PjRG4Vr/PROYECTOS-EN-CONJUNTO.jpg"
+                    alt="imagen de trabajo en conjunto"
                   />
                 </div>
               </li>
@@ -97,6 +90,7 @@ const Home = () => {
                   src="https://i.ibb.co/JC5ZHft/imagen-natifessia-Mesa-de-trabajo-1.png"
                   alt=""
                 />
+                <h4>Hola</h4>
               </div>
               <div className="container-img-portfolio">
                 <img

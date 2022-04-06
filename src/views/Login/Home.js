@@ -42,14 +42,21 @@ const Home = ({ usuario }) => {
           setProductoEditar={setProductoEditar}
         />
       )}
-      <Stack direction="horizontal" className="justify-content-between">
-        <h1>Bienvenido, {usuario.email}</h1>
+      <Stack direction="horizontal" className="justify-content-between p-3">
+        <div className="container-img-graficos">
+          <img
+            className="img-graficos"
+            src="https://i.ibb.co/JC5ZHft/imagen-natifessia-Mesa-de-trabajo-1.png"
+            alt=""
+          />
+        </div>
+        <h1>¡Hola, Nati!</h1>
         <Button onClick={cerrarSesion}>Cerrar sesion</Button>
       </Stack>
 
       <hr />
 
-      <h2>Productos</h2>
+      <h2>Portfolio / Clientes</h2>
 
       <Table>
         <thead>
@@ -75,7 +82,7 @@ const Home = ({ usuario }) => {
                   <Button
                     variant="dark"
                     onClick={() => {
-                      setProductoEditar({...prod});
+                      setProductoEditar({ ...prod });
                       setIsModalEditar(true);
                     }}
                   >
