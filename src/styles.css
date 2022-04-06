@@ -12,6 +12,11 @@
 
 * {
     font-family: var(--roboto);
+    transition: all .3s ease;
+}
+
+ul {
+    list-style: none;
 }
 
 .main-content {
@@ -20,5 +25,4 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }

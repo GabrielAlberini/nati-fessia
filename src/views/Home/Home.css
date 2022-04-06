@@ -3,7 +3,7 @@ header {
     width: 100%;
     padding: 1rem;
     margin: 0 4rem;
-    /* background-color: aquamarine; */
+    background-color: aquamarine;
 }
 
 .container-header-img {
@@ -32,9 +32,10 @@ header {
 
 main {
     max-width: 1140px;
+    width: 100%;
     padding: 1rem;
     margin: 0 4rem;
-    /* background-color: rebeccapurple; */
+    background-color: rebeccapurple;
     display: flex;
     gap: 1rem;
 }
@@ -42,46 +43,80 @@ main {
 main aside {
     width: 20%;
     padding-top: 4rem;
-    /* background-color: red; */
+    background-color: red;
     text-align: center;
 }
 
-main aside ul {
-    padding: 0;
-    list-style: none;
+main aside nav {
+    display: flex;
+    flex-direction: column;
 }
 
-main aside ul > li:nth-child(1) {
+main aside svg {
+    width: 30px;
+    fill: var(--verde);
+}
+
+main aside svg:hover {
+    fill: var(--azul);
+}
+
+main aside a {
+    padding: 1.2rem 0;
+    text-decoration: none;
     color: var(--verde);
 }
 
-main aside ul > a{
-    text-decoration: none;
-    color: black;
-    padding: 1rem;
-}
-
-main aside ul > a:hover{
+main aside a:hover {
     color: var(--azul);
 }
 
-
-main aside ul > a:visited{
-    color: black;
+.link-tienda {
+    margin: 0 auto;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: var(--verde);
+    border-radius: 50%;
+    color: white;
+    font-weight: 100;
+    font-size: 1.3rem;
 }
 
-main aside ul svg {
-    width: 20px;
-    margin-right: 5px;
+.link-tienda:hover {
+    margin: 0 auto;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: var(--azul);
+    border-radius: 50%;
+    color: var(--amarillo);
+    font-weight: 100;
+    font-size: 1.3rem;
 }
 
-/*Trabajos en conjunto*/
+.link-trabajos-conjunto {
+    font-size: .8rem;
+    padding: .3rem 0;
+    margin-top: 2rem;
+    background-color: var(--azul);
+    color: white;
+}
 
-.container-img-trab-conj {
+.lista-trabajo-conjunto {
+    padding-left: 0;
+}
+
+.container-img-trabajo-conjunto {
     width: 100%;
+    padding: 1rem;
 }
 
-.img-trab-conj {
+.img-trabajo-conjunto {
     width: 100%;
 }
 
@@ -91,7 +126,7 @@ main aside ul svg {
     width: 80%;
     display: grid;
     grid-template-columns: 370px 1fr 1fr;
-    /* background-color: beige; */
+    background-color: beige;
 }
 
 .section-trabajos > article {
@@ -99,7 +134,7 @@ main aside ul svg {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    /* outline: 1px solid black; */
+    outline: 1px solid black;
 }
 
 .section-trabajos > article > h3 {
@@ -136,7 +171,7 @@ main aside ul svg {
 
 .container-img-graficos {
     width: 180px;
-    /* background-color: aqua; */
+    background-color: aqua;
     margin-bottom: 1rem;
 }
 
@@ -148,7 +183,7 @@ main aside ul svg {
 
 .container-img-fotograficos {
     width: 180px;
-    /* background-color: aqua; */
+    background-color: aqua;
     margin-bottom: 1rem;
 }
 
@@ -161,9 +196,10 @@ main aside ul svg {
 
 footer {
     max-width: 1140px;
+    width: 100%;
     margin: 0 4rem;
     padding: 2rem;
-    /* background-color: brown; */
+    background-color: brown;
     text-align: center;
 }
 
