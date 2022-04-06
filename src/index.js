@@ -8,9 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <body className='main-content'>
       <Router />
-    </body>
   </React.StrictMode>,
   document.getElementById("root")
 );

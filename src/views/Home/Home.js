@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { getAllWorks, getAllExperiment, getAllFotografico, getAllGrupalWork } from "../../functions/getAll";
+import {
+  getAllWorks,
+  getAllExperiment,
+  getAllFotografico,
+  getAllGrupalWork,
+} from "../../functions/getAll";
 import "./Home.css";
 
 const Home = () => {
@@ -8,7 +13,6 @@ const Home = () => {
   const [fotograficos, setFotograficos] = useState([]);
   const [grupalWork, setGrupalWork] = useState([]);
 
-  console.log(portfolio);
   useEffect(() => {
     getAllWorks().then((data) => {
       setPortfolio(data);
@@ -21,7 +25,7 @@ const Home = () => {
     });
     getAllGrupalWork().then((data) => {
       setGrupalWork(data);
-    })
+    });
   }, []);
 
   return (
@@ -51,7 +55,7 @@ const Home = () => {
               rel="noreferrer"
             >
               <svg
-                class="icon-instagram"
+                className="icon-instagram"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
               >
@@ -91,8 +95,8 @@ const Home = () => {
               TRABAJOS EN CONJUNTO
             </a>
             <ul className="lista-trabajo-conjunto">
-            {grupalWork.map((work) => (
-                 <li>
+              {grupalWork.map((work) => (
+                <li key={work.sku}>
                   <div className="container-img-trabajo-conjunto">
                     <img
                       className="img-trabajo-conjunto"
@@ -100,7 +104,7 @@ const Home = () => {
                       alt="imagen de trabajo en conjunto"
                     />
                   </div>
-               </li>
+                </li>
               ))}
             </ul>
           </nav>
@@ -110,7 +114,7 @@ const Home = () => {
             <h3>PORTFOLIO / CLIENTES</h3>
             <div className="container-trabajos-portfolio">
               {portfolio.map((work) => (
-                <div className="container-img-portfolio">
+                <div key={work.sku} className="container-img-portfolio">
                   <img
                     className="img-portfolio"
                     src={work.URLimagen}
@@ -124,8 +128,8 @@ const Home = () => {
           <article>
             <h3>EXPERIMENTOS GRÁFICOS</h3>
             <div className="container-trabajos-graficos">
-            {experimentos.map((work) => (
-                <div className="container-img-graficos">
+              {experimentos.map((work) => (
+                <div key={work.sku} className="container-img-graficos">
                   <img
                     className="img-graficos"
                     src={work.URLimagen}
@@ -139,8 +143,8 @@ const Home = () => {
           <article>
             <h3>EXPERIMENTOS FOTOGRÁFICOS</h3>
             <div className="container-trabajos-fotograficos">
-            {fotograficos.map((work) => (
-                <div className="container-img-fotograficos">
+              {fotograficos.map((work) => (
+                <div key={work.sku} className="container-img-fotograficos">
                   <img
                     className="img-fotograficos"
                     src={work.URLimagen}
