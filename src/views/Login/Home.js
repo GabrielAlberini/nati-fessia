@@ -196,7 +196,7 @@ const Home = ({ usuario }) => {
       </Table>
       {/*|||||| EXPERIMENTOS FOTOGRÁFICOS ||||||*/}
       <Stack direction="horizontal" className="justify-content-between p-3">
-        <h2>Experimento fotográficos</h2>
+        <h2>Experimentosfotográficos</h2>
       </Stack>
       <hr />
       <Table>
@@ -253,7 +253,7 @@ const Home = ({ usuario }) => {
       </Table>
       {/*|||||| EXPERIMENTOS TRABAJO EN CONJUNTO ||||||*/}
       <Stack direction="horizontal" className="justify-content-between p-3">
-        <h2>Experimento trabajo en conjunto</h2>
+        <h2>Trabajos en conjunto</h2>
       </Stack>
       <hr />
       <Table>

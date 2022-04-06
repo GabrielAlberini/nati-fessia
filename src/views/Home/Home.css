@@ -182,7 +182,7 @@ main aside a:hover {
 .container-img-fotograficos:hover {
     transform: scale(1.5);
     cursor: pointer;
-    transition: .8s ease;
+    transition: all .8s ease;
 }
 
 .img-portfolio {
