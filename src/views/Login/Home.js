@@ -5,8 +5,9 @@ import {
   getAllWorks,
   getAllExperiment,
   getAllFotografico,
+  getAllGrupalWork,
 } from "../../functions/getAll";
-import { deleteExperiment, deleteWork, deleteFotografic } from "../../functions/delete";
+import { deleteExperiment, deleteWork, deleteFotografic, deleteGrupalWork } from "../../functions/delete";
 import { AñadirModal } from "../../components/AñadirModal/AñadirModal";
 import { EditarModal } from "../../components/EditarModal/EditarModal";
 
@@ -14,6 +15,7 @@ const Home = ({ usuario }) => {
   const [portfolioWorks, setPortfolioWorks] = useState([]);
   const [expetimentWork, setExpetimentWork] = useState([]);
   const [fotograficWork, setFotograficWork] = useState([]);
+  const [grupalWork, setGrupalWork] = useState([]);
   const [isModalAñadir, setIsModalAñadir] = useState(false);
   const [isModalEditar, setIsModalEditar] = useState(false);
   const [productoEDitar, setProductoEditar] = useState({});
@@ -28,6 +30,9 @@ const Home = ({ usuario }) => {
     });
     getAllFotografico().then((workList) => {
       setFotograficWork(workList);
+    });
+    getAllGrupalWork().then((workList) => {
+      setGrupalWork(workList);
     });
   }
 
@@ -246,6 +251,63 @@ const Home = ({ usuario }) => {
             ))}
         </tbody>
       </Table>
+      {/*|||||| EXPERIMENTOS TRABAJO EN CONJUNTO ||||||*/}
+      <Stack direction="horizontal" className="justify-content-between p-3">
+        <h2>Experimento trabajo en conjunto</h2>
+      </Stack>
+      <hr />
+      <Table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Imágen resumen</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {grupalWork &&
+            grupalWork.map((prod, index) => (
+              <tr key={prod.sku}>
+                <td>{index + 1}</td>
+                <td>{prod.sku}</td>
+                <td>{prod.cliente}</td>
+                <td style={{ width: 100 }}>
+                  <img
+                    style={{ width: 100 }}
+                    src={prod.URLimagen}
+                    alt="imágen de trabajo"
+                  ></img>
+                </td>
+                <td>{prod.categoria}</td>
+                <td>
+                  <Button
+                    className="m-1"
+                    variant="dark"
+                    onClick={() => {
+                      setProductoEditar({ ...prod });
+                      setIsModalEditar(true);
+                    }}
+                  >
+                    Editar
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() =>
+                      deleteGrupalWork(prod).then((confirmacion) => {
+                        updateWorks();
+                      })
+                    }
+                  >
+                    Borrar
+                  </Button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </Table>              
     </Container>
   );
 };

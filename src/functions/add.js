@@ -21,4 +21,10 @@ function addFotografico(infoProducto) {
   setDoc(docRef, infoProducto);
 }
 
-export { addWork, addExperiment, addFotografico };
+function addGrupalWork(infoProducto) {
+  const collectionRef = collection(db, "trabajoGrupal");
+  const docRef = doc(collectionRef, infoProducto.sku);
+  setDoc(docRef, infoProducto);
+}
+
+export { addWork, addExperiment, addFotografico, addGrupalWork };

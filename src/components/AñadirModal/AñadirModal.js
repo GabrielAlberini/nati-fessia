@@ -1,5 +1,5 @@
 import { Modal, Stack, Form, Button } from "react-bootstrap";
-import { addExperiment, addFotografico, addWork } from "../../functions/add";
+import { addExperiment, addFotografico, addWork, addGrupalWork } from "../../functions/add";
 
 const AñadirModal = ({
   isModalAñadir,
@@ -36,8 +36,11 @@ const AñadirModal = ({
       case "3":
         addFotografico(infoProducto);
         break;
+      case "4":
+        addGrupalWork(infoProducto);
+        break;
       default:
-        console.log("hola");
+        console.log("No existe esa opción");
     }
     actualizarEstadoProductos();
     setIsModalAñadir(false);

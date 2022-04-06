@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { getAllWorks, getAllExperiment, getAllFotografico } from "../../functions/getAll";
+import { getAllWorks, getAllExperiment, getAllFotografico, getAllGrupalWork } from "../../functions/getAll";
 import "./Home.css";
 
 const Home = () => {
   const [portfolio, setPortfolio] = useState([]);
   const [experimentos, setExperimentos] = useState([]);
   const [fotograficos, setFotograficos] = useState([]);
+  const [grupalWork, setGrupalWork] = useState([]);
 
   console.log(portfolio);
   useEffect(() => {
@@ -18,6 +19,9 @@ const Home = () => {
     getAllFotografico().then((data) => {
       setFotograficos(data);
     });
+    getAllGrupalWork().then((data) => {
+      setGrupalWork(data);
+    })
   }, []);
 
   return (
@@ -87,15 +91,17 @@ const Home = () => {
               TRABAJOS EN CONJUNTO
             </a>
             <ul className="lista-trabajo-conjunto">
-              <li>
-                <div className="container-img-trabajo-conjunto">
-                  <img
-                    className="img-trabajo-conjunto"
-                    src="https://i.ibb.co/PjRG4Vr/PROYECTOS-EN-CONJUNTO.jpg"
-                    alt="imagen de trabajo en conjunto"
-                  />
-                </div>
-              </li>
+            {grupalWork.map((work) => (
+                 <li>
+                  <div className="container-img-trabajo-conjunto">
+                    <img
+                      className="img-trabajo-conjunto"
+                      src={work.URLimagen}
+                      alt="imagen de trabajo en conjunto"
+                    />
+                  </div>
+               </li>
+              ))}
             </ul>
           </nav>
         </aside>
