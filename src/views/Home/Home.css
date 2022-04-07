@@ -246,6 +246,9 @@ main aside a:hover {
     width: 100%;
 }
 
+.section-trabajos-conjunto {
+    display: none !important;
+}
 
 /*Footer*/
 
@@ -264,21 +267,20 @@ footer a {
     color: var(--azul);
 }
 
-@media (max-width: 480px) {
+/*Responsive Design TABLET*/
+@media (max-width: 780px) {
     header {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-
     .container-header-img {
         width: 200px;
         position: relative;
     }
 
     /*Menu hamburguesa*/
-
     .container-menu-hambur {
         display: block;
         width: 30px;
@@ -331,6 +333,17 @@ footer a {
         gap: 2rem;
     }
 
+    .container-img-portfolio:hover {
+        transform: scale(1.1);
+    }
+
+    .section-trabajos {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 2rem;
+    }
+
     .container-img-graficos {
         width: 100%;
         padding: 1rem;
@@ -342,16 +355,15 @@ footer a {
     }
 
     .container-img-graficos:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 
     .container-img-portfolio > h4,
     .container-img-graficos > h4 {
         padding: 2rem;
     }
-
     .container-img-graficos:hover > h4 {
-        width: 92.7%;
+        width: 92%;
     }
 
     .container-img-graficos:nth-child(1) {
@@ -361,5 +373,16 @@ footer a {
     .container-header-txt h1 {
         font-size: 2rem;
     }
+
+    .section-trabajos-conjunto {
+        display: block !important;
+    }
+}
+
+/*Responsive Design CELULAR*/
+@media (max-width: 480px) {
+    .container-img-graficos:hover > h4 {
+        width: 91%;
+    }    
 }
   

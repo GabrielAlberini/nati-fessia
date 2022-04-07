@@ -164,6 +164,21 @@ const Home = () => {
               ))}
             </div>
           </article>
+          <article className="section-trabajos-conjunto">
+            <h3>TRABAJOS EN CONJUNTO</h3>
+            <div className="container-trabajos-graficos">
+              {grupalWork.map((work) => (
+                <div key={work.sku} className="container-img-graficos">
+                  <img
+                    className="img-graficos"
+                    src={work.URLimagen}
+                    alt={work.URLimagen}
+                  />
+                  <h4>{work.cliente}</h4>
+                </div>
+              ))}
+            </div>
+          </article>
         </section>
       </main>
       <footer>
