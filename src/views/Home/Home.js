@@ -12,6 +12,12 @@ const Home = () => {
   const [experimentos, setExperimentos] = useState([]);
   const [fotograficos, setFotograficos] = useState([]);
   const [grupalWork, setGrupalWork] = useState([]);
+  const [menuHamburguesa, setMenuHamburguesa] = useState(false)
+
+
+  const handleMenu = () => {
+    setMenuHamburguesa(!menuHamburguesa);
+  }
 
   useEffect(() => {
     getAllWorks().then((data) => {
@@ -45,9 +51,12 @@ const Home = () => {
           </h1>
           analógico digital
         </div>
+        <button onClick={handleMenu} className="container-menu-hambur">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg>
+        </button>
       </header>
       <main>
-        <aside>
+        <aside className={menuHamburguesa ? 'active' : ''}>
           <nav>
             <a
               href="https://www.instagram.com/natifessia/"
@@ -142,11 +151,11 @@ const Home = () => {
           </article>
           <article>
             <h3>EXPERIMENTOS FOTOGRÁFICOS</h3>
-            <div className="container-trabajos-fotograficos">
+            <div className="container-trabajos-graficos">
               {fotograficos.map((work) => (
-                <div key={work.sku} className="container-img-fotograficos">
+                <div key={work.sku} className="container-img-graficos">
                   <img
-                    className="img-fotograficos"
+                    className="img-graficos"
                     src={work.URLimagen}
                     alt={work.URLimagen}
                   />

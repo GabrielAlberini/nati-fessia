@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { Modal, Stack, Form, Button } from "react-bootstrap";
-import { addWork, addExperiment, addFotografico } from "../../functions/add";
+import {
+  addWork,
+  addExperiment,
+  addFotografico,
+  addGrupalWork,
+} from "../../functions/add";
 
 const EditarModal = ({
   isModalEditar,
@@ -10,16 +15,25 @@ const EditarModal = ({
   setProductoEditar,
 }) => {
   const [productoEstado, setProductoEstado] = useState({});
-  console.log(productoEstado)
+  console.log(productoEstado);
 
   function editarProductoModal() {
     const URLimagen = document.getElementById("URLimagen").value;
     const categoria = document.getElementById("categoria").value;
     const cliente = document.getElementById("cliente").value;
     const web = document.getElementById("web").value;
+    const descripcion = document.getElementById("descripcion").value;
     const hashtag = document.getElementById("hashtag").value;
     const sku = document.getElementById("sku").value;
-    const infoProducto = { cliente, URLimagen, categoria, web, hashtag, sku };
+    const infoProducto = {
+      cliente,
+      URLimagen,
+      categoria,
+      web,
+      descripcion,
+      hashtag,
+      sku,
+    };
     switch (productoEstado.selectWork) {
       case "1":
         addWork(infoProducto);
@@ -29,6 +43,9 @@ const EditarModal = ({
         break;
       case "3":
         addFotografico(infoProducto);
+        break;
+      case "4":
+        addGrupalWork(infoProducto);
         break;
       default:
         console.log("hola");
@@ -61,7 +78,12 @@ const EditarModal = ({
       <Modal.Body>
         <Form>
           <Stack>
-            <Form.Label>ID <span style={{color: "red", fontSize: 10}}>solo de lectura*</span></Form.Label>
+            <Form.Label>
+              ID{" "}
+              <span style={{ color: "red", fontSize: 10 }}>
+                solo de lectura*
+              </span>
+            </Form.Label>
             <Form.Control
               id="sku"
               placeholder="ID de la imágen"
@@ -116,7 +138,7 @@ const EditarModal = ({
               as="textarea"
               rows={7}
               id="descripcion"
-              placeholder="Hashtags relacionados"
+              placeholder="Descripción del trabajo"
               type="text"
               className="mb-2"
               value={productoEstado?.descripcion}

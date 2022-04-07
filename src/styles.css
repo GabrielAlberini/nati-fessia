@@ -2,16 +2,22 @@
     --verde: #00EA27;
     --azul: #0000FE;
     --amarillo: #E2F102;
-    --roboto: RobotoPagina;
+    --roboto: RobotoPaginaBold;
+    --roboto-thin: RobotoPaginaThin;
+    --box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.42);
 }
 
 @font-face {
-    font-family: RobotoPagina;
+    font-family: RobotoPaginaBold;
     src: url('./assets/Roboto/Roboto-Medium.ttf');
 }
 
-* {
-    font-family: var(--roboto);
+@font-face {
+    font-family: RobotoPaginaThin;
+    src: url('./assets/Roboto/Roboto-Light.ttf');
+}
+p {
+    font-family: var(--roboto-thin);
 }
 
 ul {

@@ -22,10 +22,18 @@ header {
 
 .container-header-txt h1 {
     font-size: 3.5rem;
+    font-family: var(--roboto-thin);
 }
 
 .container-header-txt span {
+    font-family: var(--roboto);
     color: var(--verde);
+}
+
+/*Menu hamburguesa*/
+
+.container-menu-hambur {
+    display: none;
 }
 
 /*Main*/
@@ -178,11 +186,19 @@ main aside a:hover {
 }
 
 .container-img-portfolio:hover,
-.container-img-graficos:hover,
-.container-img-fotograficos:hover {
+.container-img-graficos:hover {
     transform: scale(1.5);
     cursor: pointer;
     transition: all .8s ease;
+    box-shadow: var(--box-shadow);
+}
+
+.container-img-graficos:hover {
+    box-shadow: none;
+}
+
+.img-graficos:hover {
+    box-shadow: var(--box-shadow);
 }
 
 .img-portfolio {
@@ -190,14 +206,16 @@ main aside a:hover {
 }
 
 .container-img-portfolio > h4,
-.container-img-graficos > h4,
-.container-img-fotograficos > h4 {
+.container-img-graficos > h4 {
+    width: 100%;
     display: none;
+    padding: 1.5rem;
+    font-family: var(--roboto-thin);
+    text-align: center;
 }
 
 .container-img-portfolio:hover > h4,
-.container-img-graficos:hover > h4,
-.container-img-fotograficos:hover > h4 {
+.container-img-graficos:hover > h4 {
     width: 100%;
     font-size: 1rem;
     color: white;
@@ -228,18 +246,6 @@ main aside a:hover {
     width: 100%;
 }
 
-/*Seccion fotografia*/
-
-.container-img-fotograficos {
-    width: 180px;
-    /* background-color: aqua; */
-    margin-bottom: 1rem;
-}
-
-.img-fotograficos {
-    width: 100%;
-}
-
 
 /*Footer*/
 
@@ -266,13 +272,94 @@ footer a {
         align-items: center;
     }
 
-    .container-header-txt h1 {
-        font-size: 2rem;
-    }
-
     .container-header-img {
         width: 200px;
         position: relative;
+    }
+
+    /*Menu hamburguesa*/
+
+    .container-menu-hambur {
+        display: block;
+        width: 30px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 3000;
+        position: fixed;
+        background-color: transparent;
+        border: none;
+        fill: var(--azul);
+    }
+
+    .active {
+        display: block;
+    }
+
+    main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main aside {
+        display: none;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2000;
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+        background-color: black;
+        padding-bottom: 2rem;
+    }
+
+    .link-trabajos-conjunto {
+        display: none;
+    }
+
+    .lista-trabajo-conjunto {
+        display: none;
+    }
+
+    .section-trabajos {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 2rem;
+    }
+
+    .container-img-graficos {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .container-img-portfolio:hover,
+    .container-img-graficos:hover {
+        transform: scale(1.1);
+    }
+
+    .container-img-graficos:hover {
+        transform: scale(1.1);
+    }
+
+    .container-img-portfolio > h4,
+    .container-img-graficos > h4 {
+        padding: 2rem;
+    }
+
+    .container-img-graficos:hover > h4 {
+        width: 92.7%;
+    }
+
+    .container-img-graficos:nth-child(1) {
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    .container-header-txt h1 {
+        font-size: 2rem;
     }
 }
   

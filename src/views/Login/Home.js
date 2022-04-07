@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
 import { cerrarSesion } from "../../functions/signOut";
 import { Container, Stack, Button, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import {
   getAllWorks,
   getAllExperiment,
   getAllFotografico,
   getAllGrupalWork,
 } from "../../functions/getAll";
-import { deleteExperiment, deleteWork, deleteFotografic, deleteGrupalWork } from "../../functions/delete";
+import {
+  deleteExperiment,
+  deleteWork,
+  deleteFotografic,
+  deleteGrupalWork,
+} from "../../functions/delete";
 import { AñadirModal } from "../../components/AñadirModal/AñadirModal";
 import { EditarModal } from "../../components/EditarModal/EditarModal";
 
@@ -61,13 +67,15 @@ const Home = ({ usuario }) => {
         />
       )}
       <Stack direction="horizontal" className="justify-content-between p-3">
-        <div className="container-img-graficos">
-          <img
-            className="img-graficos"
-            src="https://i.ibb.co/JC5ZHft/imagen-natifessia-Mesa-de-trabajo-1.png"
-            alt=""
-          />
-        </div>
+        <Link to="/">
+          <div style={{width: 200}}>
+            <img
+              style={{width: "100%"}}
+              src="https://i.ibb.co/JC5ZHft/imagen-natifessia-Mesa-de-trabajo-1.png"
+              alt=""
+            />
+          </div>
+        </Link>
         <h1>¡Hola, Nati!</h1>
         <Button onClick={cerrarSesion}>Cerrar sesion</Button>
       </Stack>
@@ -307,7 +315,7 @@ const Home = ({ usuario }) => {
               </tr>
             ))}
         </tbody>
-      </Table>              
+      </Table>
     </Container>
   );
 };
