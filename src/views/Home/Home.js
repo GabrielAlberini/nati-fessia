@@ -14,7 +14,6 @@ const Home = () => {
   const [grupalWork, setGrupalWork] = useState([]);
   const [menuHamburguesa, setMenuHamburguesa] = useState(false)
 
-
   const handleMenu = () => {
     setMenuHamburguesa(!menuHamburguesa);
   }
