@@ -16,6 +16,7 @@ function addExperiment(infoProducto) {
 }
 
 function addFotografico(infoProducto) {
+  console.log("new fotografico", infoProducto);
   const collectionRef = collection(db, "fotograficos");
   const docRef = doc(collectionRef, infoProducto.sku);
   setDoc(docRef, infoProducto);

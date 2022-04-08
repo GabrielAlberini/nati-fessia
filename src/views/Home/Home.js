@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   getAllWorks,
   getAllExperiment,
   getAllFotografico,
   getAllGrupalWork,
 } from "../../functions/getAll";
+import { Detail } from "../Detail/Detail";
 import "./Home.css";
 
 const Home = () => {
@@ -12,11 +14,13 @@ const Home = () => {
   const [experimentos, setExperimentos] = useState([]);
   const [fotograficos, setFotograficos] = useState([]);
   const [grupalWork, setGrupalWork] = useState([]);
-  const [menuHamburguesa, setMenuHamburguesa] = useState(false)
+  const [menuHamburguesa, setMenuHamburguesa] = useState(false);
+  const [isModalEditar, setIsModalEditar] = useState();
+  const [productoEDitar, setProductoEditar] = useState({});
 
   const handleMenu = () => {
     setMenuHamburguesa(!menuHamburguesa);
-  }
+  };
 
   useEffect(() => {
     getAllWorks().then((data) => {
@@ -39,7 +43,7 @@ const Home = () => {
         <div className="container-header-img">
           <img
             className="header-img"
-            src="https://i.ibb.co/JC5ZHft/imagen-natifessia-Mesa-de-trabajo-1.png"
+            src="https://i.ibb.co/kQqpbmv/imagen-natifessia-Mesa-de-trabajo-1.png"
             alt="logo nati fessia"
           />
         </div>
@@ -51,11 +55,13 @@ const Home = () => {
           analógico digital
         </div>
         <button onClick={handleMenu} className="container-menu-hambur">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+          </svg>
         </button>
       </header>
       <main>
-        <aside className={menuHamburguesa ? 'active' : ''}>
+        <aside className={menuHamburguesa ? "active" : ""}>
           <nav>
             <a
               href="https://www.instagram.com/natifessia/"
@@ -105,31 +111,56 @@ const Home = () => {
             <ul className="lista-trabajo-conjunto">
               {grupalWork.map((work) => (
                 <li key={work.sku}>
-                  <div className="container-img-trabajo-conjunto">
-                    <img
-                      className="img-trabajo-conjunto"
-                      src={work.URLimagen}
-                      alt="imagen de trabajo en conjunto"
-                    />
-                  </div>
+                  <Link
+                    to="/"
+                    onClick={() => {
+                      setProductoEditar({ ...work });
+                      setIsModalEditar(true);
+                    }}
+                  >
+                    <div className="container-img-trabajo-conjunto">
+                      <img
+                        className="img-trabajo-conjunto"
+                        src={work.URLimagen}
+                        alt="imagen de trabajo en conjunto"
+                      />
+                    </div>
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
         </aside>
         <section className="section-trabajos">
+          {productoEDitar && (
+            <Detail
+              isModalEditar={isModalEditar}
+              setIsModalEditar={setIsModalEditar}
+              productoEditar={productoEDitar}
+              setProductoEditar={setProductoEditar}
+            />
+          )}
           <article>
             <h3>PORTFOLIO / CLIENTES</h3>
             <div className="container-trabajos-portfolio">
               {portfolio.map((work) => (
-                <div key={work.sku} className="container-img-portfolio">
-                  <img
-                    className="img-portfolio"
-                    src={work.URLimagen}
-                    alt={work.URLimagen}
-                  />
-                  <h4>{work.cliente}</h4>
-                </div>
+                <Link
+                  to="/"
+                  key={work.sku}
+                  onClick={() => {
+                    setProductoEditar({ ...work });
+                    setIsModalEditar(true);
+                  }}
+                >
+                  <div className="container-img-portfolio">
+                    <img
+                      className="img-portfolio"
+                      src={work.URLimagen}
+                      alt={work.URLimagen}
+                    />
+                    <h4>{work.cliente}</h4>
+                  </div>
+                </Link>
               ))}
             </div>
           </article>
@@ -137,14 +168,23 @@ const Home = () => {
             <h3>EXPERIMENTOS GRÁFICOS</h3>
             <div className="container-trabajos-graficos">
               {experimentos.map((work) => (
-                <div key={work.sku} className="container-img-graficos">
-                  <img
-                    className="img-graficos"
-                    src={work.URLimagen}
-                    alt={work.URLimagen}
-                  />
-                  <h4>{work.cliente}</h4>
-                </div>
+                <Link
+                  to="/"
+                  key={work.sku}
+                  onClick={() => {
+                    setProductoEditar({ ...work });
+                    setIsModalEditar(true);
+                  }}
+                >
+                  <div className="container-img-graficos">
+                    <img
+                      className="img-graficos"
+                      src={work.URLimagen}
+                      alt={work.URLimagen}
+                    />
+                    <h4>{work.cliente}</h4>
+                  </div>
+                </Link>
               ))}
             </div>
           </article>
@@ -152,14 +192,23 @@ const Home = () => {
             <h3>EXPERIMENTOS FOTOGRÁFICOS</h3>
             <div className="container-trabajos-graficos">
               {fotograficos.map((work) => (
-                <div key={work.sku} className="container-img-graficos">
-                  <img
-                    className="img-graficos"
-                    src={work.URLimagen}
-                    alt={work.URLimagen}
-                  />
-                  <h4>{work.cliente}</h4>
-                </div>
+                <Link
+                  to="/"
+                  key={work.sku}
+                  onClick={() => {
+                    setProductoEditar({ ...work });
+                    setIsModalEditar(true);
+                  }}
+                >
+                  <div className="container-img-graficos">
+                    <img
+                      className="img-graficos"
+                      src={work.URLimagen}
+                      alt={work.URLimagen}
+                    />
+                    <h4>{work.cliente}</h4>
+                  </div>
+                </Link>
               ))}
             </div>
           </article>
@@ -167,14 +216,22 @@ const Home = () => {
             <h3>TRABAJOS EN CONJUNTO</h3>
             <div className="container-trabajos-graficos">
               {grupalWork.map((work) => (
-                <div key={work.sku} className="container-img-graficos">
-                  <img
-                    className="img-graficos"
-                    src={work.URLimagen}
-                    alt={work.URLimagen}
-                  />
-                  <h4>{work.cliente}</h4>
-                </div>
+                <Link
+                  to="/"
+                  onClick={() => {
+                    setProductoEditar({ ...work });
+                    setIsModalEditar(true);
+                  }}
+                >
+                  <div key={work.sku} className="container-img-graficos">
+                    <img
+                      className="img-graficos"
+                      src={work.URLimagen}
+                      alt={work.URLimagen}
+                    />
+                    <h4>{work.cliente}</h4>
+                  </div>
+                </Link>
               ))}
             </div>
           </article>

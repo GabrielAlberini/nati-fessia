@@ -17,7 +17,7 @@ import {
 import { AñadirModal } from "../../components/AñadirModal/AñadirModal";
 import { EditarModal } from "../../components/EditarModal/EditarModal";
 
-const Home = ({ usuario }) => {
+const Home = () => {
   const [portfolioWorks, setPortfolioWorks] = useState([]);
   const [expetimentWork, setExpetimentWork] = useState([]);
   const [fotograficWork, setFotograficWork] = useState([]);
@@ -25,6 +25,8 @@ const Home = ({ usuario }) => {
   const [isModalAñadir, setIsModalAñadir] = useState(false);
   const [isModalEditar, setIsModalEditar] = useState(false);
   const [productoEDitar, setProductoEditar] = useState({});
+
+  console.log(portfolioWorks)
 
   //Actualizar Trabajos de Portfolio
   function updateWorks() {
@@ -68,9 +70,9 @@ const Home = ({ usuario }) => {
       )}
       <Stack direction="horizontal" className="justify-content-between p-3">
         <Link to="/">
-          <div style={{width: 200}}>
+          <div style={{ width: 200 }}>
             <img
-              style={{width: "100%"}}
+              style={{ width: "100%" }}
               src="https://i.ibb.co/JC5ZHft/imagen-natifessia-Mesa-de-trabajo-1.png"
               alt=""
             />
@@ -88,7 +90,6 @@ const Home = ({ usuario }) => {
       <Table>
         <thead>
           <tr>
-            <th>#</th>
             <th>ID</th>
             <th>Cliente</th>
             <th>Imágen resumen</th>
@@ -102,7 +103,6 @@ const Home = ({ usuario }) => {
           {portfolioWorks &&
             portfolioWorks.map((prod, index) => (
               <tr key={prod.sku}>
-                <td>{index + 1}</td>
                 <td>{prod.sku}</td>
                 <td>{prod.cliente}</td>
                 <td style={{ width: 100 }}>
@@ -125,6 +125,7 @@ const Home = ({ usuario }) => {
                     variant="dark"
                     onClick={() => {
                       setProductoEditar({ ...prod });
+                      console.log(prod);
                       setIsModalEditar(true);
                     }}
                   >
@@ -153,7 +154,6 @@ const Home = ({ usuario }) => {
       <Table>
         <thead>
           <tr>
-            <th>#</th>
             <th>ID</th>
             <th>Cliente</th>
             <th>Imágen resumen</th>
@@ -165,7 +165,6 @@ const Home = ({ usuario }) => {
           {expetimentWork &&
             expetimentWork.map((prod, index) => (
               <tr key={prod.sku}>
-                <td>{index + 1}</td>
                 <td>{prod.sku}</td>
                 <td>{prod.cliente}</td>
                 <td style={{ width: 100 }}>
@@ -210,7 +209,6 @@ const Home = ({ usuario }) => {
       <Table>
         <thead>
           <tr>
-            <th>#</th>
             <th>ID</th>
             <th>Cliente</th>
             <th>Imágen resumen</th>
@@ -220,9 +218,10 @@ const Home = ({ usuario }) => {
         </thead>
         <tbody>
           {fotograficWork &&
-            fotograficWork.map((prod, index) => (
+            fotograficWork.sort((a, b) => {
+              return b - a
+            }).map((prod, index) => (
               <tr key={prod.sku}>
-                <td>{index + 1}</td>
                 <td>{prod.sku}</td>
                 <td>{prod.cliente}</td>
                 <td style={{ width: 100 }}>

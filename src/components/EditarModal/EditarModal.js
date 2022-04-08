@@ -15,9 +15,11 @@ const EditarModal = ({
   setProductoEditar,
 }) => {
   const [productoEstado, setProductoEstado] = useState({});
-  console.log(productoEstado);
+  console.log("producto copia en editar modal", productoEstado)
 
   function editarProductoModal() {
+    const selectWork = productoEstado.selectWork;
+    console.log("slect work", selectWork)
     const URLimagen = document.getElementById("URLimagen").value;
     const categoria = document.getElementById("categoria").value;
     const cliente = document.getElementById("cliente").value;
@@ -25,7 +27,17 @@ const EditarModal = ({
     const descripcion = document.getElementById("descripcion").value;
     const hashtag = document.getElementById("hashtag").value;
     const sku = document.getElementById("sku").value;
+
+    //Imagenes descriptivas
+    const foto1 = document.getElementById("URLimagen1").value;
+    const foto2 = document.getElementById("URLimagen2").value;
+    const foto3 = document.getElementById("URLimagen3").value;
+    const foto4 = document.getElementById("URLimagen4").value;
+    const foto5 = document.getElementById("URLimagen5").value;
+    const foto6 = document.getElementById("URLimagen6").value;
+
     const infoProducto = {
+      selectWork,
       cliente,
       URLimagen,
       categoria,
@@ -33,7 +45,14 @@ const EditarModal = ({
       descripcion,
       hashtag,
       sku,
+      foto1,
+      foto2,
+      foto3,
+      foto4,
+      foto5,
+      foto6,
     };
+
     switch (productoEstado.selectWork) {
       case "1":
         addWork(infoProducto);
@@ -99,7 +118,7 @@ const EditarModal = ({
               placeholder="Nombre del cliente"
               type="text"
               className="mb-2"
-              value={productoEstado?.cliente}
+              value={productoEstado.cliente}
               name="cliente"
               onChange={(e) => handleChange(e)}
             />
@@ -111,6 +130,61 @@ const EditarModal = ({
               className="mb-2"
               value={productoEstado?.URLimagen}
               name="URLimagen"
+              onChange={(e) => handleChange(e)}
+            />
+            <Form.Label>Imagenes descriptivas</Form.Label>
+            <Form.Control
+              id="URLimagen1"
+              placeholder="URL de la imágen"
+              type="text"
+              className="mb-2"
+              value={productoEstado?.foto1}
+              name="foto1"
+              onChange={(e) => handleChange(e)}
+            />
+            <Form.Control
+              id="URLimagen2"
+              placeholder="URL de la imágen"
+              type="text"
+              className="mb-2"
+              value={productoEstado?.foto2}
+              name="foto2"
+              onChange={(e) => handleChange(e)}
+            />
+            <Form.Control
+              id="URLimagen3"
+              placeholder="URL de la imágen"
+              type="text"
+              className="mb-2"
+              value={productoEstado?.foto3}
+              name="foto3"
+              onChange={(e) => handleChange(e)}
+            />
+            <Form.Control
+              id="URLimagen4"
+              placeholder="URL de la imágen"
+              type="text"
+              className="mb-2"
+              value={productoEstado?.foto4}
+              name="foto4"
+              onChange={(e) => handleChange(e)}
+            />
+            <Form.Control
+              id="URLimagen5"
+              placeholder="URL de la imágen"
+              type="text"
+              className="mb-2"
+              value={productoEstado?.foto5}
+              name="foto5"
+              onChange={(e) => handleChange(e)}
+            />
+            <Form.Control
+              id="URLimagen6"
+              placeholder="URL de la imágen"
+              type="text"
+              className="mb-2"
+              value={productoEstado?.foto6}
+              name="foto6"
               onChange={(e) => handleChange(e)}
             />
             <Form.Label>Categoría</Form.Label>

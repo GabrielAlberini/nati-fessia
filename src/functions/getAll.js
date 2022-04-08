@@ -10,6 +10,17 @@ async function getAllWorks() {
   snapshot.forEach((doc) => {
     productos.push(doc.data());
   });
+  productos.sort((a, b) => {
+    const transformSKUa = Number(a.sku);
+    const transformSKUb = Number(b.sku);
+    if (transformSKUa < transformSKUb) {
+      return -1;
+    }
+    if (transformSKUa > transformSKUb) {
+      return 1;
+    }
+    return 0;
+  });
   return productos;
 }
 
@@ -19,6 +30,17 @@ async function getAllExperiment() {
   const snapshot = await getDocs(collectionRef);
   snapshot.forEach((doc) => {
     productos.push(doc.data());
+  });
+  productos.sort((a, b) => {
+    const transformSKUa = Number(a.sku);
+    const transformSKUb = Number(b.sku);
+    if (transformSKUa < transformSKUb) {
+      return -1;
+    }
+    if (transformSKUa > transformSKUb) {
+      return 1;
+    }
+    return 0;
   });
   return productos;
 }
@@ -30,6 +52,18 @@ async function getAllFotografico() {
   snapshot.forEach((doc) => {
     productos.push(doc.data());
   });
+  productos.sort((a, b) => {
+    const transformSKUa = Number(a.sku);
+    const transformSKUb = Number(b.sku);
+    if (transformSKUa < transformSKUb) {
+      return -1;
+    }
+    if (transformSKUa > transformSKUb) {
+      return 1;
+    }
+    return 0;
+  });
+
   return productos;
 }
 
@@ -39,6 +73,17 @@ async function getAllGrupalWork() {
   const snapshot = await getDocs(collectionRef);
   snapshot.forEach((doc) => {
     productos.push(doc.data());
+  });
+  productos.sort((a, b) => {
+    const transformSKUa = Number(a.sku);
+    const transformSKUb = Number(b.sku);
+    if (transformSKUa < transformSKUb) {
+      return -1;
+    }
+    if (transformSKUa > transformSKUb) {
+      return 1;
+    }
+    return 0;
   });
   return productos;
 }

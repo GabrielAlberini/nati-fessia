@@ -250,6 +250,43 @@ main aside a:hover {
     display: none !important;
 }
 
+/*Detail*/
+
+.modal-detail {
+    padding: 1rem;
+    text-align: center;
+}
+
+.title-detail {
+    text-align: center;
+}
+
+.main-img-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-img-detail {
+    width: 100%;
+}
+
+.img-detail {
+    width: 100%;
+}
+
+.close-detail {
+    width: 30px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    fill: var(--verde);
+    cursor: pointer;
+}
+
+
 /*Footer*/
 
 footer {
