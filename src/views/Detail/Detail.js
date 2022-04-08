@@ -16,6 +16,9 @@ const Detail = ({
   return (
     <Modal
       show={isModalEditar}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
       onHide={() => {
         setIsModalEditar(false);
         setProductoEditar(null);
