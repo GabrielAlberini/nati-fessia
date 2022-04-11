@@ -37,7 +37,7 @@ const Detail = ({
           </svg>
         </div>
         <h2 className="title-detail">{productoEstado.cliente}</h2>
-        <h5>{productoEstado.descripcion}</h5>
+        <h5 className="subtitle-detail">{productoEstado.descripcion}</h5>
         <article>
           <div className="main-img-detail">
             {productoEstado.foto1 && (
@@ -96,14 +96,15 @@ const Detail = ({
             )}
           </div>
           <a
+            className="web-detail"
             href={`https://${productoEstado.web}`}
             rel="noreferrer"
             target="_blank"
           >
             {productoEstado.web}
           </a>
-          <h5 className="title-detail">{productoEstado.categoria}</h5>
-          <span className="title-detail">{productoEstado.hashtag}</span>
+          <h5 className="categoria-detail">{productoEstado.categoria}</h5>
+          <span className="hashtag-detail">{productoEstado.hashtag}</span>
         </article>
       </section>
     </Modal>

@@ -109,4 +109,10 @@ async function getAllLaminas() {
   return productos;
 }
 
-export { getAllWorks, getAllExperiment, getAllFotografico, getAllGrupalWork, getAllLaminas };
+export {
+  getAllWorks,
+  getAllExperiment,
+  getAllFotografico,
+  getAllGrupalWork,
+  getAllLaminas,
+};

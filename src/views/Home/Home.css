@@ -257,8 +257,14 @@ main aside a:hover {
     text-align: center;
 }
 
-.title-detail {
-    text-align: center;
+.title-detail,
+.subtitle-detail {
+    text-align: left;
+    font-size: 1rem;
+}
+
+.subtitle-detail {
+    margin-bottom: 2rem;
 }
 
 .main-img-detail {
@@ -267,6 +273,7 @@ main aside a:hover {
     gap: 1rem;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 .container-img-detail {
@@ -277,15 +284,30 @@ main aside a:hover {
     width: 100%;
 }
 
+.web-detail {
+    color: var(--azul);
+    text-decoration: none;
+}
+
+.categoria-detail {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: .6rem;
+}
+
+.hashtag-detail {
+    font-size: 1rem;
+    font-style: italic;
+}
+
 .close-detail {
     width: 20px;
     position: absolute;
-    right: 20px;
-    top: 10px;
+    right: 10px;
+    top: 5px;
     fill: var(--verde);
     cursor: pointer;
 }
-
 
 /*Footer*/
 

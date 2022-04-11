@@ -1,5 +1,5 @@
-import { Modal, Button } from "react-bootstrap";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Modal } from "react-bootstrap";
+import { Link } from "react-scroll";
 
 function MenuHamburguesa(props) {
   return (

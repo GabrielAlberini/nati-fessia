@@ -9,7 +9,7 @@ import {
 } from "../../functions/getAll";
 import { Detail } from "../Detail/Detail";
 import { Loader } from "../../components/Loader/Loader";
-import {MenuHamburguesa} from '../../components/MenuHamburguesa/MenuHamburguesa'
+import { MenuHamburguesa } from "../../components/MenuHamburguesa/MenuHamburguesa";
 import "./Home.css";
 
 const Home = () => {
@@ -22,7 +22,6 @@ const Home = () => {
   const [productoEDitar, setProductoEditar] = useState({});
 
   const [modalShow, setModalShow] = useState(false);
-
 
   useEffect(() => {
     getAllWorks().then((data) => {
@@ -59,7 +58,10 @@ const Home = () => {
           </h1>
           analógico - digital
         </div>
-        <button onClick={() => setModalShow(!modalShow)} className="container-menu-hambur">
+        <button
+          onClick={() => setModalShow(!modalShow)}
+          className="container-menu-hambur"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
           </svg>
@@ -67,8 +69,10 @@ const Home = () => {
       </header>
       <main>
         <aside>
-          <MenuHamburguesa  show={modalShow}
-        onHide={() => setModalShow(false)}/>
+          <MenuHamburguesa
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
           <nav>
             <a
               href="https://www.instagram.com/natifessia/"
@@ -260,7 +264,10 @@ const Home = () => {
               </div>
             )}
           </article>
-          <article id="experiencias-graficas" className="section-trabajos-conjunto">
+          <article
+            id="experiencias-graficas"
+            className="section-trabajos-conjunto"
+          >
             <h3>TRABAJOS EN CONJUNTO</h3>
             <div className="container-trabajos-graficos">
               {grupalWork.map((work) => (
