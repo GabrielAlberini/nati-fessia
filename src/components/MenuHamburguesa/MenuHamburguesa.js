@@ -40,7 +40,7 @@ function MenuHamburguesa(props) {
           duration={500}
           to="experiencias-fotograficas"
         >
-          EXPERIENCIAS FOTOGRÁFICAS
+          EXPERIMENTOS FOTOGRÁFICOS
         </Link>
         <Link
           activeClass="active"
@@ -49,7 +49,7 @@ function MenuHamburguesa(props) {
           duration={500}
           to="experiencias-graficas"
         >
-          EXPERIENCIAS GRÁFICAS
+          EXPERIMENTOS GRÁFICOS
         </Link>
         <Link
           activeClass="active"

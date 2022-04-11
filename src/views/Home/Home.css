@@ -352,7 +352,7 @@ footer a {
         position: fixed;
         background-color: transparent;
         border: none;
-        fill: var(--azul);
+        fill: var(--verde);
     }
 
     .active {
@@ -372,7 +372,7 @@ footer a {
     /*Menu hamburguesa*/
 
     .container-menu-hamburguesa {
-        background-color: black;
+        background-color: white;
         border: none !important;
         border-radius: 3px;
         outline: none !important;
@@ -386,7 +386,8 @@ footer a {
 
     .container-menu-hamburguesa svg {
         width: 20px;
-        fill: var(--verde);
+        fill: var(--azul);
+        border: none;
     }
 
     .container-menu-hamburguesa nav {
@@ -398,6 +399,10 @@ footer a {
         color: var(--azul) !important;
         cursor: pointer !important;
         text-decoration: none;
+    }
+
+    .modal-content {
+        border: none !important;
     }
 
     .link-trabajos-conjunto {
