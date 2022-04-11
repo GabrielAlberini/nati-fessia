@@ -367,15 +367,35 @@ footer a {
 
     main aside {
         display: none;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 2000;
-        overflow: hidden;
-        box-shadow: var(--box-shadow);
+    }
+
+    .container-menu-hamburguesa {
         background-color: black;
-        padding-bottom: 2rem;
+        border: transparent;
+        border-radius: 3px;
+        outline: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .container-menu-hamburguesa svg {
+        width: 20px;
+        fill: var(--verde);
+    }
+
+    .container-menu-hamburguesa nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-menu-hamburguesa nav a {
+        color: var(--azul) !important;
+        cursor: pointer !important;
+        text-decoration: none;
     }
 
     .link-trabajos-conjunto {

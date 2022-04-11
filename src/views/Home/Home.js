@@ -9,6 +9,7 @@ import {
 } from "../../functions/getAll";
 import { Detail } from "../Detail/Detail";
 import { Loader } from "../../components/Loader/Loader";
+import {MenuHamburguesa} from '../../components/MenuHamburguesa/MenuHamburguesa'
 import "./Home.css";
 
 const Home = () => {
@@ -17,13 +18,11 @@ const Home = () => {
   const [fotograficos, setFotograficos] = useState([]);
   const [grupalWork, setGrupalWork] = useState([]);
   const [laminas, setLaminas] = useState([]);
-  const [menuHamburguesa, setMenuHamburguesa] = useState(false);
   const [isModalEditar, setIsModalEditar] = useState();
   const [productoEDitar, setProductoEditar] = useState({});
 
-  const handleMenu = () => {
-    setMenuHamburguesa(!menuHamburguesa);
-  };
+  const [modalShow, setModalShow] = useState(false);
+
 
   useEffect(() => {
     getAllWorks().then((data) => {
@@ -60,14 +59,16 @@ const Home = () => {
           </h1>
           analógico digital
         </div>
-        <button onClick={handleMenu} className="container-menu-hambur">
+        <button onClick={() => setModalShow(!modalShow)} className="container-menu-hambur">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
           </svg>
         </button>
       </header>
       <main>
-        <aside className={menuHamburguesa ? "active" : ""}>
+        <aside>
+          <MenuHamburguesa  show={modalShow}
+        onHide={() => setModalShow(false)}/>
           <nav>
             <a
               href="https://www.instagram.com/natifessia/"
@@ -231,7 +232,7 @@ const Home = () => {
               </div>
             )}
           </article>
-          <article>
+          <article id="experiencias-fotograficas">
             <h3>EXPERIMENTOS FOTOGRÁFICOS</h3>
             {fotograficos.length === 0 ? (
               <Loader />
@@ -259,7 +260,7 @@ const Home = () => {
               </div>
             )}
           </article>
-          <article className="section-trabajos-conjunto">
+          <article id="experiencias-graficas" className="section-trabajos-conjunto">
             <h3>TRABAJOS EN CONJUNTO</h3>
             <div className="container-trabajos-graficos">
               {grupalWork.map((work) => (
@@ -282,7 +283,7 @@ const Home = () => {
               ))}
             </div>
           </article>
-          <article className="section-trabajos-conjunto">
+          <article id="laminas" className="section-trabajos-conjunto">
             <h3>LÁMINAS</h3>
             <div className="container-trabajos-graficos">
               {laminas.map((work) => (
