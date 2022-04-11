@@ -373,9 +373,10 @@ footer a {
 
     .container-menu-hamburguesa {
         background-color: black;
-        border: transparent;
+        border: none;
         border-radius: 3px;
         outline: none;
+        margin: none;
         display: flex;
         flex-direction: column;
         justify-content: center;
