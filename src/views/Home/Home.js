@@ -57,7 +57,7 @@ const Home = () => {
           <h1>
             www<span>.natifessia.</span>com.ar
           </h1>
-          analógico digital
+          analógico - digital
         </div>
         <button onClick={() => setModalShow(!modalShow)} className="container-menu-hambur">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
