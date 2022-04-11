@@ -187,7 +187,7 @@ main aside a:hover {
 
 .container-img-portfolio:hover,
 .container-img-graficos:hover {
-    transform: scale(1.5);
+    transform: scale(1.3);
     cursor: pointer;
     transition: all .8s ease;
     box-shadow: var(--box-shadow);
@@ -209,7 +209,7 @@ main aside a:hover {
 .container-img-graficos > h4 {
     width: 100%;
     display: none;
-    padding: 1.5rem;
+    padding: 2rem;
     font-family: var(--roboto-thin);
     text-align: center;
 }
@@ -467,10 +467,6 @@ footer a {
         transform: scale(1.05);
     }
 
-    .container-img-portfolio > h4,
-    .container-img-graficos > h4 {
-        padding: 2rem;
-    }
     .container-img-graficos:hover > h4 {
         width: 92%;
     }
