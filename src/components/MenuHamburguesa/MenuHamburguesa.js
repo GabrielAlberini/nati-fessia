@@ -37,7 +37,6 @@ function MenuHamburguesa(props) {
           activeClass="active"
           spy={true}
           smooth={true}
-          offset={-70}
           duration={500}
           to="experiencias-fotograficas"
         >
@@ -47,7 +46,6 @@ function MenuHamburguesa(props) {
           activeClass="active"
           spy={true}
           smooth={true}
-          offset={-70}
           duration={500}
           to="experiencias-graficas"
         >
@@ -57,7 +55,6 @@ function MenuHamburguesa(props) {
           activeClass="active"
           spy={true}
           smooth={true}
-          offset={-70}
           duration={500}
           to="trabajos-en-conjunto"
         >
@@ -67,7 +64,6 @@ function MenuHamburguesa(props) {
           activeClass="active"
           spy={true}
           smooth={true}
-          offset={-70}
           duration={500}
           to="laminas"
         >
