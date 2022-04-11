@@ -35,6 +35,7 @@ const Detail = ({
         </div>
         <h2 className="title-detail">{productoEstado.cliente}</h2>
         <h5>{productoEstado.descripcion}</h5>
+        <a href={productoEstado.web} rel="noreferrer" target='_blank'><h5>{productoEstado.web}</h5></a>
         <article>
           <div className="main-img-detail">
             {productoEstado.foto1 && (

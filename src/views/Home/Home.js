@@ -5,9 +5,10 @@ import {
   getAllExperiment,
   getAllFotografico,
   getAllGrupalWork,
-  getAllLaminas
+  getAllLaminas,
 } from "../../functions/getAll";
 import { Detail } from "../Detail/Detail";
+import { Loader } from "../../components/Loader/Loader";
 import "./Home.css";
 
 const Home = () => {
@@ -132,7 +133,7 @@ const Home = () => {
                     </div>
                   </Link>
                 </li>
-              ))} 
+              ))}
             </ul>
             <a
               className="link-trabajos-conjunto"
@@ -161,7 +162,7 @@ const Home = () => {
                     </div>
                   </Link>
                 </li>
-              ))} 
+              ))}
             </ul>
           </nav>
         </aside>
@@ -176,75 +177,87 @@ const Home = () => {
           )}
           <article>
             <h3>PORTFOLIO / CLIENTES</h3>
-            <div className="container-trabajos-portfolio">
-              {portfolio.map((work) => (
-                <Link
-                  to="/"
-                  key={work.sku}
-                  onClick={() => {
-                    setProductoEditar({ ...work });
-                    setIsModalEditar(true);
-                  }}
-                >
-                  <div className="container-img-portfolio">
-                    <img
-                      className="img-portfolio"
-                      src={work.URLimagen}
-                      alt={work.URLimagen}
-                    />
-                    <h4>{work.cliente}</h4>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            {portfolio.length === 0 ? (
+              <Loader />
+            ) : (
+              <div className="container-trabajos-portfolio">
+                {portfolio.map((work) => (
+                  <Link
+                    to="/"
+                    key={work.sku}
+                    onClick={() => {
+                      setProductoEditar({ ...work });
+                      setIsModalEditar(true);
+                    }}
+                  >
+                    <div className="container-img-portfolio">
+                      <img
+                        className="img-portfolio"
+                        src={work.URLimagen}
+                        alt={work.URLimagen}
+                      />
+                      <h4>{work.cliente}</h4>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
           </article>
           <article>
             <h3>EXPERIMENTOS GRÁFICOS</h3>
-            <div className="container-trabajos-graficos">
-              {experimentos.map((work) => (
-                <Link
-                  to="/"
-                  key={work.sku}
-                  onClick={() => {
-                    setProductoEditar({ ...work });
-                    setIsModalEditar(true);
-                  }}
-                >
-                  <div className="container-img-graficos">
-                    <img
-                      className="img-graficos"
-                      src={work.URLimagen}
-                      alt={work.URLimagen}
-                    />
-                    <h4>{work.cliente}</h4>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            {experimentos.length === 0 ? (
+              <Loader />
+            ) : (
+              <div className="container-trabajos-graficos">
+                {experimentos.map((work) => (
+                  <Link
+                    to="/"
+                    key={work.sku}
+                    onClick={() => {
+                      setProductoEditar({ ...work });
+                      setIsModalEditar(true);
+                    }}
+                  >
+                    <div className="container-img-graficos">
+                      <img
+                        className="img-graficos"
+                        src={work.URLimagen}
+                        alt={work.URLimagen}
+                      />
+                      <h4>{work.cliente}</h4>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
           </article>
           <article>
             <h3>EXPERIMENTOS FOTOGRÁFICOS</h3>
-            <div className="container-trabajos-graficos">
-              {fotograficos.map((work) => (
-                <Link
-                  to="/"
-                  key={work.sku}
-                  onClick={() => {
-                    setProductoEditar({ ...work });
-                    setIsModalEditar(true);
-                  }}
-                >
-                  <div className="container-img-graficos">
-                    <img
-                      className="img-graficos"
-                      src={work.URLimagen}
-                      alt={work.URLimagen}
-                    />
-                    <h4>{work.cliente}</h4>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            {fotograficos.length === 0 ? (
+              <Loader />
+            ) : (
+              <div className="container-trabajos-graficos">
+                {fotograficos.map((work) => (
+                  <Link
+                    to="/"
+                    key={work.sku}
+                    onClick={() => {
+                      setProductoEditar({ ...work });
+                      setIsModalEditar(true);
+                    }}
+                  >
+                    <div className="container-img-graficos">
+                      <img
+                        className="img-graficos"
+                        src={work.URLimagen}
+                        alt={work.URLimagen}
+                      />
+                      <h4>{work.cliente}</h4>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
           </article>
           <article className="section-trabajos-conjunto">
             <h3>TRABAJOS EN CONJUNTO</h3>

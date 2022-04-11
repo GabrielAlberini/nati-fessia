@@ -304,6 +304,29 @@ footer a {
     color: var(--azul);
 }
 
+/*Loader*/ 
+
+.container-img-loader {
+    width: 150px;
+    animation-name: rotation;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+.img-loader {
+    width: 100%;
+}
+
+@keyframes rotation {
+    0% {
+      transform:rotate(0deg);
+    }
+    100% {
+      transform:rotate(360deg);
+    }
+  }
+
 /*Responsive Design TABLET*/
 @media (max-width: 780px) {
     header {
