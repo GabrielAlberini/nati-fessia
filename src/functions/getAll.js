@@ -13,10 +13,10 @@ async function getAllWorks() {
   productos.sort((a, b) => {
     const transformSKUa = Number(a.sku);
     const transformSKUb = Number(b.sku);
-    if (transformSKUa < transformSKUb) {
+    if (transformSKUa > transformSKUb) {
       return -1;
     }
-    if (transformSKUa > transformSKUb) {
+    if (transformSKUa < transformSKUb) {
       return 1;
     }
     return 0;
@@ -34,10 +34,10 @@ async function getAllExperiment() {
   productos.sort((a, b) => {
     const transformSKUa = Number(a.sku);
     const transformSKUb = Number(b.sku);
-    if (transformSKUa < transformSKUb) {
+    if (transformSKUa > transformSKUb) {
       return -1;
     }
-    if (transformSKUa > transformSKUb) {
+    if (transformSKUa < transformSKUb) {
       return 1;
     }
     return 0;
@@ -55,10 +55,10 @@ async function getAllFotografico() {
   productos.sort((a, b) => {
     const transformSKUa = Number(a.sku);
     const transformSKUb = Number(b.sku);
-    if (transformSKUa < transformSKUb) {
+    if (transformSKUa > transformSKUb) {
       return -1;
     }
-    if (transformSKUa > transformSKUb) {
+    if (transformSKUa < transformSKUb) {
       return 1;
     }
     return 0;
@@ -77,10 +77,10 @@ async function getAllGrupalWork() {
   productos.sort((a, b) => {
     const transformSKUa = Number(a.sku);
     const transformSKUb = Number(b.sku);
-    if (transformSKUa < transformSKUb) {
+    if (transformSKUa > transformSKUb) {
       return -1;
     }
-    if (transformSKUa > transformSKUb) {
+    if (transformSKUa < transformSKUb) {
       return 1;
     }
     return 0;
@@ -98,10 +98,10 @@ async function getAllLaminas() {
   productos.sort((a, b) => {
     const transformSKUa = Number(a.sku);
     const transformSKUb = Number(b.sku);
-    if (transformSKUa < transformSKUb) {
+    if (transformSKUa > transformSKUb) {
       return -1;
     }
-    if (transformSKUa > transformSKUb) {
+    if (transformSKUa < transformSKUb) {
       return 1;
     }
     return 0;
