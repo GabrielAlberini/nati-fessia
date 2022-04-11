@@ -88,4 +88,25 @@ async function getAllGrupalWork() {
   return productos;
 }
 
-export { getAllWorks, getAllExperiment, getAllFotografico, getAllGrupalWork };
+async function getAllLaminas() {
+  const productos = [];
+  const collectionRef = collection(db, "laminas");
+  const snapshot = await getDocs(collectionRef);
+  snapshot.forEach((doc) => {
+    productos.push(doc.data());
+  });
+  productos.sort((a, b) => {
+    const transformSKUa = Number(a.sku);
+    const transformSKUb = Number(b.sku);
+    if (transformSKUa < transformSKUb) {
+      return -1;
+    }
+    if (transformSKUa > transformSKUb) {
+      return 1;
+    }
+    return 0;
+  });
+  return productos;
+}
+
+export { getAllWorks, getAllExperiment, getAllFotografico, getAllGrupalWork, getAllLaminas };

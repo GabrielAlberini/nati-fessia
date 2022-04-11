@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { cerrarSesion } from "../../functions/signOut";
 import { Container, Stack, Button, Table } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   getAllWorks,
   getAllExperiment,
   getAllFotografico,
   getAllGrupalWork,
+  getAllLaminas,
 } from "../../functions/getAll";
 import {
   deleteExperiment,
   deleteWork,
   deleteFotografic,
   deleteGrupalWork,
+  deleteLaminas,
 } from "../../functions/delete";
 import { AñadirModal } from "../../components/AñadirModal/AñadirModal";
 import { EditarModal } from "../../components/EditarModal/EditarModal";
@@ -22,6 +24,7 @@ const Home = () => {
   const [expetimentWork, setExpetimentWork] = useState([]);
   const [fotograficWork, setFotograficWork] = useState([]);
   const [grupalWork, setGrupalWork] = useState([]);
+  const [laminas, setLaminas] = useState([])
   const [isModalAñadir, setIsModalAñadir] = useState(false);
   const [isModalEditar, setIsModalEditar] = useState(false);
   const [productoEDitar, setProductoEditar] = useState({});
@@ -39,6 +42,9 @@ const Home = () => {
     });
     getAllGrupalWork().then((workList) => {
       setGrupalWork(workList);
+    });
+    getAllLaminas().then((workList) => {
+      setLaminas(workList);
     });
   }
 
@@ -104,7 +110,7 @@ const Home = () => {
         </thead>
         <tbody>
           {portfolioWorks &&
-            portfolioWorks.map((prod, index) => (
+            portfolioWorks.map((prod) => (
               <tr key={prod.sku}>
                 <td>{prod.sku}</td>
                 <td>{prod.cliente}</td>
@@ -165,7 +171,7 @@ const Home = () => {
         </thead>
         <tbody>
           {expetimentWork &&
-            expetimentWork.map((prod, index) => (
+            expetimentWork.map((prod) => (
               <tr key={prod.sku}>
                 <td>{prod.sku}</td>
                 <td>{prod.cliente}</td>
@@ -224,7 +230,7 @@ const Home = () => {
               .sort((a, b) => {
                 return b - a;
               })
-              .map((prod, index) => (
+              .map((prod) => (
                 <tr key={prod.sku}>
                   <td>{prod.sku}</td>
                   <td>{prod.cliente}</td>
@@ -270,7 +276,6 @@ const Home = () => {
       <Table>
         <thead>
           <tr>
-            <th>#</th>
             <th>ID</th>
             <th>Cliente</th>
             <th>Imágen resumen</th>
@@ -280,9 +285,8 @@ const Home = () => {
         </thead>
         <tbody>
           {grupalWork &&
-            grupalWork.map((prod, index) => (
+            grupalWork.map((prod) => (
               <tr key={prod.sku}>
-                <td>{index + 1}</td>
                 <td>{prod.sku}</td>
                 <td>{prod.cliente}</td>
                 <td style={{ width: 100 }}>
@@ -308,6 +312,60 @@ const Home = () => {
                     variant="danger"
                     onClick={() =>
                       deleteGrupalWork(prod).then((confirmacion) => {
+                        updateWorks();
+                      })
+                    }
+                  >
+                    Borrar
+                  </Button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </Table>
+      <Stack direction="horizontal" className="justify-content-between p-3">
+        <h2>Láminas</h2>
+      </Stack>
+      <hr />
+      <Table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Imágen resumen</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {laminas &&
+            laminas.map((prod) => (
+              <tr key={prod.sku}>
+                <td>{prod.sku}</td>
+                <td>{prod.cliente}</td>
+                <td style={{ width: 100 }}>
+                  <img
+                    style={{ width: 100 }}
+                    src={prod.URLimagen}
+                    alt="imágen de trabajo"
+                  ></img>
+                </td>
+                <td>{prod.categoria}</td>
+                <td>
+                  <Button
+                    className="m-1"
+                    variant="dark"
+                    onClick={() => {
+                      setProductoEditar({ ...prod });
+                      setIsModalEditar(true);
+                    }}
+                  >
+                    Editar
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() =>
+                      deleteLaminas(prod).then((confirmacion) => {
                         updateWorks();
                       })
                     }

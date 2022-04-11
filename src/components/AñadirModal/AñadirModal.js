@@ -4,6 +4,7 @@ import {
   addFotografico,
   addWork,
   addGrupalWork,
+  addLaminas,
 } from "../../functions/add";
 
 const AñadirModal = ({
@@ -58,6 +59,9 @@ const AñadirModal = ({
       case "4":
         addGrupalWork(infoProducto);
         break;
+      case "5":
+        addLaminas(infoProducto);
+        break;
       default:
         console.log("No existe esa opción");
     }
@@ -83,6 +87,7 @@ const AñadirModal = ({
               <option value="2">Experimento gráfico</option>
               <option value="3">Experimento fotográficos</option>
               <option value="4">Trabajo en conjunto</option>
+              <option value="5">Láminas</option>
             </Form.Select>
             <Form.Label>
               ID{" "}

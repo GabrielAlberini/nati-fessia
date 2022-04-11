@@ -5,6 +5,7 @@ import {
   getAllExperiment,
   getAllFotografico,
   getAllGrupalWork,
+  getAllLaminas
 } from "../../functions/getAll";
 import { Detail } from "../Detail/Detail";
 import "./Home.css";
@@ -14,6 +15,7 @@ const Home = () => {
   const [experimentos, setExperimentos] = useState([]);
   const [fotograficos, setFotograficos] = useState([]);
   const [grupalWork, setGrupalWork] = useState([]);
+  const [laminas, setLaminas] = useState([]);
   const [menuHamburguesa, setMenuHamburguesa] = useState(false);
   const [isModalEditar, setIsModalEditar] = useState();
   const [productoEDitar, setProductoEditar] = useState({});
@@ -34,6 +36,9 @@ const Home = () => {
     });
     getAllGrupalWork().then((data) => {
       setGrupalWork(data);
+    });
+    getAllLaminas().then((data) => {
+      setLaminas(data);
     });
   }, []);
 
@@ -127,7 +132,36 @@ const Home = () => {
                     </div>
                   </Link>
                 </li>
-              ))}
+              ))} 
+            </ul>
+            <a
+              className="link-trabajos-conjunto"
+              href="https://www.instagram.com/natifessia/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LÁMINAS
+            </a>
+            <ul className="lista-trabajo-conjunto">
+              {laminas.map((work) => (
+                <li key={work.sku}>
+                  <Link
+                    to="/"
+                    onClick={() => {
+                      setProductoEditar({ ...work });
+                      setIsModalEditar(true);
+                    }}
+                  >
+                    <div className="container-img-trabajo-conjunto">
+                      <img
+                        className="img-trabajo-conjunto"
+                        src={work.URLimagen}
+                        alt="imagen de trabajo en conjunto"
+                      />
+                    </div>
+                  </Link>
+                </li>
+              ))} 
             </ul>
           </nav>
         </aside>
@@ -216,6 +250,29 @@ const Home = () => {
             <h3>TRABAJOS EN CONJUNTO</h3>
             <div className="container-trabajos-graficos">
               {grupalWork.map((work) => (
+                <Link
+                  to="/"
+                  onClick={() => {
+                    setProductoEditar({ ...work });
+                    setIsModalEditar(true);
+                  }}
+                >
+                  <div key={work.sku} className="container-img-graficos">
+                    <img
+                      className="img-graficos"
+                      src={work.URLimagen}
+                      alt={work.URLimagen}
+                    />
+                    <h4>{work.cliente}</h4>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </article>
+          <article className="section-trabajos-conjunto">
+            <h3>LÁMINAS</h3>
+            <div className="container-trabajos-graficos">
+              {laminas.map((work) => (
                 <Link
                   to="/"
                   onClick={() => {

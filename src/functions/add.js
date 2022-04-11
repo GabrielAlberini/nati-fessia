@@ -28,4 +28,10 @@ function addGrupalWork(infoProducto) {
   setDoc(docRef, infoProducto);
 }
 
-export { addWork, addExperiment, addFotografico, addGrupalWork };
+function addLaminas(infoProducto) {
+  const collectionRef = collection(db, "laminas");
+  const docRef = doc(collectionRef, infoProducto.sku);
+  setDoc(docRef, infoProducto);
+}
+
+export { addWork, addExperiment, addFotografico, addGrupalWork, addLaminas };

@@ -43,4 +43,14 @@ async function deleteGrupalWork(producto) {
   }
 }
 
-export { deleteWork, deleteExperiment, deleteFotografic, deleteGrupalWork };
+async function deleteLaminas(producto) {
+  const result = window.confirm("Seguro que desea eliminar el producto?");
+  if (result) {
+    const coleccionRef = collection(db, "laminas");
+    const docuRef = doc(coleccionRef, producto.sku);
+    const eliminado = await deleteDoc(docuRef);
+    return eliminado;
+  }
+}
+
+export { deleteWork, deleteExperiment, deleteFotografic, deleteGrupalWork, deleteLaminas };

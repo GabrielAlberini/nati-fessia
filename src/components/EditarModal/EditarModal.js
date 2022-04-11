@@ -5,6 +5,7 @@ import {
   addExperiment,
   addFotografico,
   addGrupalWork,
+  addLaminas,
 } from "../../functions/add";
 
 const EditarModal = ({
@@ -63,6 +64,9 @@ const EditarModal = ({
         break;
       case "4":
         addGrupalWork(infoProducto);
+        break;
+      case "5":
+        addLaminas(infoProducto);
         break;
       default:
         console.log("No existe esa opción");
