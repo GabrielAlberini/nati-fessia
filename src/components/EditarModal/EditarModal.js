@@ -15,11 +15,9 @@ const EditarModal = ({
   setProductoEditar,
 }) => {
   const [productoEstado, setProductoEstado] = useState({});
-  console.log("producto copia en editar modal", productoEstado)
 
   function editarProductoModal() {
     const selectWork = productoEstado.selectWork;
-    console.log("slect work", selectWork)
     const URLimagen = document.getElementById("URLimagen").value;
     const categoria = document.getElementById("categoria").value;
     const cliente = document.getElementById("cliente").value;
@@ -67,7 +65,7 @@ const EditarModal = ({
         addGrupalWork(infoProducto);
         break;
       default:
-        console.log("hola");
+        console.log("No existe esa opción");
     }
     setProductoEditar(null);
     actualizarEstadoProductos();

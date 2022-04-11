@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { cerrarSesion } from "../../functions/signOut";
 import { Container, Stack, Button, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   getAllWorks,
   getAllExperiment,
@@ -25,8 +25,6 @@ const Home = () => {
   const [isModalAñadir, setIsModalAñadir] = useState(false);
   const [isModalEditar, setIsModalEditar] = useState(false);
   const [productoEDitar, setProductoEditar] = useState({});
-
-  console.log(portfolioWorks)
 
   //Actualizar Trabajos de Portfolio
   function updateWorks() {
@@ -79,7 +77,12 @@ const Home = () => {
           </div>
         </Link>
         <h1>¡Hola, Nati!</h1>
-        <Button onClick={cerrarSesion}>Cerrar sesion</Button>
+        <div>
+          <Link to="/">
+            <Button>Ir a inicio</Button>
+          </Link>
+          <Button className="m-3" onClick={cerrarSesion}>Cerrar sesion</Button>
+        </div>
       </Stack>
       <hr />
       <Stack direction="horizontal" className="justify-content-between p-3">
@@ -125,7 +128,6 @@ const Home = () => {
                     variant="dark"
                     onClick={() => {
                       setProductoEditar({ ...prod });
-                      console.log(prod);
                       setIsModalEditar(true);
                     }}
                   >
@@ -218,44 +220,46 @@ const Home = () => {
         </thead>
         <tbody>
           {fotograficWork &&
-            fotograficWork.sort((a, b) => {
-              return b - a
-            }).map((prod, index) => (
-              <tr key={prod.sku}>
-                <td>{prod.sku}</td>
-                <td>{prod.cliente}</td>
-                <td style={{ width: 100 }}>
-                  <img
-                    style={{ width: 100 }}
-                    src={prod.URLimagen}
-                    alt="imágen de trabajo"
-                  ></img>
-                </td>
-                <td>{prod.categoria}</td>
-                <td>
-                  <Button
-                    className="m-1"
-                    variant="dark"
-                    onClick={() => {
-                      setProductoEditar({ ...prod });
-                      setIsModalEditar(true);
-                    }}
-                  >
-                    Editar
-                  </Button>
-                  <Button
-                    variant="danger"
-                    onClick={() =>
-                      deleteFotografic(prod).then((confirmacion) => {
-                        updateWorks();
-                      })
-                    }
-                  >
-                    Borrar
-                  </Button>
-                </td>
-              </tr>
-            ))}
+            fotograficWork
+              .sort((a, b) => {
+                return b - a;
+              })
+              .map((prod, index) => (
+                <tr key={prod.sku}>
+                  <td>{prod.sku}</td>
+                  <td>{prod.cliente}</td>
+                  <td style={{ width: 100 }}>
+                    <img
+                      style={{ width: 100 }}
+                      src={prod.URLimagen}
+                      alt="imágen de trabajo"
+                    ></img>
+                  </td>
+                  <td>{prod.categoria}</td>
+                  <td>
+                    <Button
+                      className="m-1"
+                      variant="dark"
+                      onClick={() => {
+                        setProductoEditar({ ...prod });
+                        setIsModalEditar(true);
+                      }}
+                    >
+                      Editar
+                    </Button>
+                    <Button
+                      variant="danger"
+                      onClick={() =>
+                        deleteFotografic(prod).then((confirmacion) => {
+                          updateWorks();
+                        })
+                      }
+                    >
+                      Borrar
+                    </Button>
+                  </td>
+                </tr>
+              ))}
         </tbody>
       </Table>
       {/*|||||| EXPERIMENTOS TRABAJO EN CONJUNTO ||||||*/}
