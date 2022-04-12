@@ -255,12 +255,15 @@ main aside a:hover {
 .modal-detail {
     padding: 1rem;
     text-align: center;
+    z-index: 6000 !important;
+    font-weight: 100 !important;
 }
 
 .title-detail,
 .subtitle-detail {
     text-align: left;
     font-size: 1rem;
+    font-weight: 100 !important;
 }
 
 .subtitle-detail {
@@ -292,6 +295,7 @@ main aside a:hover {
 .categoria-detail {
     text-align: center;
     font-size: 1rem;
+    font-weight: 100 !important;
     margin-top: .6rem;
 }
 
@@ -307,6 +311,7 @@ main aside a:hover {
     top: 5px;
     fill: var(--verde);
     cursor: pointer;
+    z-index: 6000 !important;
 }
 
 /*Footer*/
@@ -370,7 +375,7 @@ footer a {
         top: 20px;
         right: 20px;
         cursor: pointer;
-        z-index: 3000;
+        z-index: 1000;
         position: fixed;
         background-color: transparent;
         border: none;
