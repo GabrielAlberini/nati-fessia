@@ -482,6 +482,12 @@ footer a {
     .section-trabajos-conjunto {
         display: block !important;
     }
+
+    /*Detail*/ 
+
+    .main-img-detail {
+        grid-template-columns: 1fr;
+    }
 }
 
 /*Responsive Design CELULAR*/
