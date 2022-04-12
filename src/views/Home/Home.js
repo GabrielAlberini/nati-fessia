@@ -47,7 +47,7 @@ const Home = () => {
         <div className="container-header-img">
           <img
             className="header-img"
-            src="https://i.ibb.co/kQqpbmv/imagen-natifessia-Mesa-de-trabajo-1.png"
+            src="/logo.png"
             alt="logo nati fessia"
           />
         </div>
