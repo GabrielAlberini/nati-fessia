@@ -56,7 +56,7 @@ const Home = () => {
           <h1>
             www<span>.natifessia.</span>com.ar
           </h1>
-          analógico - digital
+          <p>analógico - digital</p>
         </div>
         <button
           onClick={() => setModalShow(!modalShow)}

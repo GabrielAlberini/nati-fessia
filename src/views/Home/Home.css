@@ -217,7 +217,7 @@ main aside a:hover {
 .container-img-portfolio:hover > h4,
 .container-img-graficos:hover > h4 {
     width: 100%;
-    font-size: 1rem;
+    font-size: .8rem;
     color: white;
     width: 100%;
     height: 20px;
