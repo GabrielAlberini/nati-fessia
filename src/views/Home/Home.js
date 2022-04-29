@@ -11,6 +11,7 @@ import { Detail } from "../Detail/Detail";
 import { Loader } from "../../components/Loader/Loader";
 import { MenuHamburguesa } from "../../components/MenuHamburguesa/MenuHamburguesa";
 import "./Home.css";
+import { Experiencia } from "../../components/Experiencia/Experiencia";
 
 const Home = () => {
   const [portfolio, setPortfolio] = useState([]);
@@ -20,8 +21,8 @@ const Home = () => {
   const [laminas, setLaminas] = useState([]);
   const [isModalEditar, setIsModalEditar] = useState();
   const [productoEDitar, setProductoEditar] = useState({});
-
   const [modalShow, setModalShow] = useState(false);
+  const [showExperiencia, setShowExperiencia] = useState(false)
 
   useEffect(() => {
     getAllWorks().then((data) => {
@@ -73,6 +74,11 @@ const Home = () => {
             show={modalShow}
             onHide={() => setModalShow(false)}
           />
+          <Experiencia
+            setShowExperiencia={setShowExperiencia}
+            show={showExperiencia}
+            onHide={() => setShowExperiencia(false)}
+          />
           <nav>
             <a
               href="https://www.instagram.com/natifessia/"
@@ -89,20 +95,17 @@ const Home = () => {
             </a>
             <a
               className="link-instagram"
-              href="https://www.instagram.com/natifessia/"
-              target="_blank"
-              rel="noreferrer"
+              href="mailto:nfessia@gmail.com"
             >
               CONTACTO
             </a>
-            <a
+            <Link
+              to="/"
               className="link-experiencia"
-              href="https://www.instagram.com/natifessia/"
-              target="_blank"
-              rel="noreferrer"
+              onClick={() => setShowExperiencia(!showExperiencia)}
             >
               EXPERIENCIA
-            </a>
+            </Link>
             <a
               className="link-tienda"
               href="https://www.instagram.com/natifessia/"

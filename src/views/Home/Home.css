@@ -314,6 +314,13 @@ main aside a:hover {
     z-index: 6000 !important;
 }
 
+/*Experiencia*/
+
+.container-experiencia {
+    padding: 2rem;
+    text-align: justify;
+}
+
 /*Footer*/
 
 footer {
