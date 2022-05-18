@@ -12,7 +12,7 @@ import firebaseApp from "../../firebase/credenciales";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 const auth = getAuth(firebaseApp);
 
-function App() {
+function DashboardLogin() {
   const [usuario, setUsuaruio] = useState(null);
 
   onAuthStateChanged(auth, (usuarioFirebase) => {
@@ -26,4 +26,4 @@ function App() {
   return <Container fluid>{usuario ? <Home usuario={usuario}/> : <Login />}</Container>;
 }
 
-export default App;
+export default DashboardLogin;
