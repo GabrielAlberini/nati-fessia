@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./views/Home/Home";
 import { Detail } from "./views/Detail/Detail";
 import { NotFound } from './views/NotFound/NotFound'
-import App from './views/Login/DashboardLogin'
+import DashboardLogin from './views/Login/DashboardLogin'
 
 const Router = () => {
   return (
@@ -11,7 +11,7 @@ const Router = () => {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/detalle/:id" element={<Detail />}></Route>
-          <Route path="/admin" element={<App />}></Route>
+          <Route path="/admin" element={<DashboardLogin />}></Route>
           <Route path="/*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
