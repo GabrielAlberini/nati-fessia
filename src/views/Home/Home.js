@@ -65,7 +65,12 @@ const Home = () => {
           </svg>
         </button>
       </header>
-      <MenuHamburguesa show={modalShow} onHide={() => setModalShow(false)} />
+      <MenuHamburguesa
+        setModalShow={setModalShow}
+        modalShow={modalShow}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
       <Experiencia
         setShowExperiencia={setShowExperiencia}
         show={showExperiencia}

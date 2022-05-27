@@ -5,3 +5,14 @@
 .container-experiencia > p {
     margin-bottom: 0;
 }
+
+@media (max-width: 780px) {
+    .container-experiencia {
+        padding: 0rem;
+    }
+
+    .close-detail {
+        top: -50px;
+        right: 0;
+    }
+}   
