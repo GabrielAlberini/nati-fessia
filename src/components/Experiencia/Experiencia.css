@@ -1,0 +1,7 @@
+.container-experiencia {
+    padding: 3rem;
+}
+
+.container-experiencia > p {
+    margin-bottom: 0;
+}

@@ -3,7 +3,7 @@ import { Link } from "react-scroll";
 
 function MenuHamburguesa(props) {
   return (
-    <Modal {...props} size="lg" dialogClassName="container-menu-hamburguesa">
+    <Modal {...props} size="lg" className="container-menu-hamburguesa">
       <nav className="container-menu-hamburguesa">
         <a
           href="https://www.instagram.com/natifessia/"
