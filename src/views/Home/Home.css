@@ -311,7 +311,7 @@ main aside a:hover {
     top: 5px;
     fill: var(--verde);
     cursor: pointer;
-    z-index: 6000 !important;
+    z-index: 7000 !important;
 }
 
 /*Experiencia*/
