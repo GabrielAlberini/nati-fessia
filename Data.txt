@@ -1,34 +1,8 @@
-- Colores: 
+Administración:
 
-Pajaro de Fuego: #94252C
-Salmón: #DA9795
-Rosa Claro:#FEF2EE
+Usuario: nataliafessia2022@gmail.com
+Contraseña: paraWEB2022
 
-- Tipografía: 
-
-Título y Cuerpo: Old Standard.
-
-- Estructura de la barra de navegación: 
-
-1. Inicio
-2. Tienda Botánica
-3. Contacto
-
-- Diseño web: 
-
-inspiración "Animal de isla" de Mariana Matija 
-https://animaldeisla.com/
-
-GMAIL:
-tiendabotanica.sf@gmail.com
-
-WHATSAPP:
-+549 3425848928
-
-INSTAGRAM: 
-@tiendabotanica.sf
-
-GMAIL BASE DE DATOS:
-basadoenplantas.bo@gmail.com
-PASS:
-basadoenplantas2022
+IMGBB
+Usuario: Natifessia
+Contraseña: paraWEB22
