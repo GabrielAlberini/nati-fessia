@@ -12,7 +12,7 @@ import { Loader } from "../../components/Loader/Loader";
 import { MenuHamburguesa } from "../../components/MenuHamburguesa/MenuHamburguesa";
 import "./Home.css";
 import { Experiencia } from "../../components/Experiencia/Experiencia";
-import { Header } from "../../components/Header/Header";
+import { ScrollButton } from '../../components/BotonIrArriba/BotonIrArriba'
 
 const Home = () => {
   const [portfolio, setPortfolio] = useState([]);
@@ -65,6 +65,7 @@ const Home = () => {
           </svg>
         </button>
       </header>
+      <ScrollButton />
       <MenuHamburguesa
         setModalShow={setModalShow}
         modalShow={modalShow}

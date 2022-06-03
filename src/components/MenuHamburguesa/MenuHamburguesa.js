@@ -6,7 +6,7 @@ import { Experiencia } from "../Experiencia/Experiencia";
 function MenuHamburguesa(props) {
   const [showExperiencia, setShowExperiencia] = useState(false);
 
-  const {setModalShow, modalShow} = props;
+  const { setModalShow, modalShow } = props;
 
   return (
     <>
@@ -41,8 +41,8 @@ function MenuHamburguesa(props) {
             to="/"
             className="link-experiencia"
             onClick={() => {
-              setShowExperiencia(!showExperiencia)
-              setModalShow(false)
+              setShowExperiencia(!showExperiencia);
+              setModalShow(false);
             }}
           >
             EXPERIENCIA
@@ -54,7 +54,7 @@ function MenuHamburguesa(props) {
             duration={500}
             to="experiencias-fotograficas"
             onClick={() => {
-              setModalShow(false)
+              setModalShow(false);
             }}
           >
             EXPERIMENTOS FOTOGRÁFICOS
@@ -66,7 +66,7 @@ function MenuHamburguesa(props) {
             duration={500}
             to="experiencias-graficas"
             onClick={() => {
-              setModalShow(false)
+              setModalShow(false);
             }}
           >
             EXPERIMENTOS GRÁFICOS
@@ -78,7 +78,7 @@ function MenuHamburguesa(props) {
             duration={500}
             to="trabajos-en-conjunto"
             onClick={() => {
-              setModalShow(false)
+              setModalShow(false);
             }}
           >
             TRABAJOS EN CONJUNTO
@@ -90,7 +90,7 @@ function MenuHamburguesa(props) {
             duration={500}
             to="laminas"
             onClick={() => {
-              setModalShow(false)
+              setModalShow(false);
             }}
           >
             LÁMINAS
@@ -101,7 +101,7 @@ function MenuHamburguesa(props) {
             target="_blank"
             rel="noreferrer"
             onClick={() => {
-              setModalShow(false)
+              setModalShow(false);
             }}
           >
             TIENDA
