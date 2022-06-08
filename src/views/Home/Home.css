@@ -81,30 +81,14 @@ main aside a:hover {
 
 .link-tienda {
     margin: 0 auto;
-    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    background-color: var(--verde);
-    border-radius: 50%;
-    color: white;
-    font-weight: 100;
-    font-size: 1.3rem;
-}
-
-.link-tienda:hover {
-    margin: 0 auto;
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    background-color: var(--azul);
-    border-radius: 50%;
-    color: var(--amarillo);
-    font-weight: 100;
-    font-size: 1.3rem;
+    cursor: auto;
+    animation-name: rotation;
+	animation-duration: 8s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 
 .link-trabajos-conjunto {
@@ -253,7 +237,7 @@ main aside a:hover {
 /*Detail*/
 
 .modal-detail {
-    padding: 1rem;
+    padding: 3rem;
     text-align: center;
     font-weight: 100 !important;
 }
@@ -263,6 +247,7 @@ main aside a:hover {
     text-align: left;
     font-size: 1rem;
     font-weight: 100 !important;
+    padding: .5rem 0;
 }
 
 .subtitle-detail {
@@ -274,8 +259,8 @@ main aside a:hover {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
+    align-items: flex-start;
+    margin-bottom: 3rem;
 }
 
 .container-img-detail {
@@ -301,6 +286,7 @@ main aside a:hover {
 .hashtag-detail {
     font-size: 1rem;
     font-style: italic;
+    padding: 1rem 0;
 }
 
 .close-detail {
@@ -362,6 +348,16 @@ footer a {
     border: none;
     background: var(--verde);
     z-index: 3000;
+}
+
+/*Img nati*/
+
+.cont-img-nati {
+    width: 100px;
+}
+
+.cont-img-nati img {
+    width: 100%;
 }
 
 @keyframes rotation {

@@ -16,6 +16,7 @@
     font-family: RobotoPaginaThin;
     src: url('./assets/Roboto/Roboto-Light.ttf');
 }
+
 p {
     font-family: var(--roboto-thin);
 }

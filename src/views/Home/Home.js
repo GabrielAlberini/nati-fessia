@@ -109,7 +109,9 @@ const Home = () => {
               target="_blank"
               rel="noreferrer"
             >
-              TIENDA
+              <div className="cont-img-nati">
+                <img src="/nati.png" alt="" />
+              </div>
             </a>
             <a
               className="link-trabajos-conjunto"
