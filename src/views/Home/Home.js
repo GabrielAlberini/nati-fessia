@@ -110,7 +110,7 @@ const Home = () => {
               rel="noreferrer"
             >
               <div className="cont-img-nati">
-                <img src="/nati.png" alt="" />
+                <img src="/nati.png" alt="foto de nati" />
               </div>
             </a>
             <a

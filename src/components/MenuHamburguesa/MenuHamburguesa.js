@@ -100,11 +100,10 @@ function MenuHamburguesa(props) {
             href="https://www.instagram.com/natifessia/"
             target="_blank"
             rel="noreferrer"
-            onClick={() => {
-              setModalShow(false);
-            }}
           >
-            TIENDA
+            <div className="cont-img-nati">
+              <img src="/nati.png" alt="foto de nati" />
+            </div>
           </a>
         </nav>
       </Modal>
