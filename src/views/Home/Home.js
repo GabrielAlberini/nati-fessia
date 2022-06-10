@@ -335,7 +335,7 @@ const Home = () => {
       <footer>
         Sitio desarrollado por{" "}
         <a
-          href="https://www.linkedin.com/in/gabriel-alberini/"
+          href="https://gabrielalberini.com.ar"
           target="_blank"
           rel="noreferrer"
         >
