@@ -4,6 +4,7 @@
 
 .container-experiencia > p {
     margin-bottom: 0;
+    text-align: left;
 }
 
 @media (max-width: 780px) {

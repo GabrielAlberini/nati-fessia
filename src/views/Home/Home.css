@@ -290,6 +290,7 @@ main aside a:hover {
 }
 
 .close-detail {
+    padding: 1rem;
     width: 20px;
     height: 20px;
     fill: var(--verde);
@@ -360,6 +361,12 @@ footer a {
     width: 100%;
 }
 
+.container-menu-hamburguesa svg {
+    width: 20px;
+    fill: var(--azul);
+    border: none;
+}
+
 @keyframes rotation {
     0% {
       transform:rotate(0deg);
@@ -367,7 +374,7 @@ footer a {
     100% {
       transform:rotate(360deg);
     }
-  }
+}
 
 /*Responsive Design TABLET*/
 @media (max-width: 780px) {
@@ -423,12 +430,6 @@ footer a {
         align-items: center;
         gap: 1rem;
         padding: 1rem;
-    }
-
-    .container-menu-hamburguesa svg {
-        width: 20px;
-        fill: var(--azul);
-        border: none;
     }
 
     .container-menu-hamburguesa nav {
