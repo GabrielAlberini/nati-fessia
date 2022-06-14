@@ -290,13 +290,11 @@ main aside a:hover {
 }
 
 .close-detail {
-    padding: 1rem;
     width: 20px;
     height: 20px;
     fill: var(--verde);
     cursor: pointer;
-    margin: 0 auto 1rem auto;
-
+    margin: 0 auto 2rem auto;
 }
 
 /*Experiencia*/
