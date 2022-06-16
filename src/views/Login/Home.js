@@ -77,7 +77,7 @@ const Home = () => {
           <div style={{ width: 200 }}>
             <img
               style={{ width: "100%" }}
-              src="https://i.ibb.co/kQqpbmv/imagen-natifessia-Mesa-de-trabajo-1.png"
+              src="./nati.png"
               alt=""
             />
           </div>
