@@ -21,7 +21,6 @@ async function getAllWorks() {
     }
     return 0;
   });
-  console.log(productos)
   return productos;
 }
 

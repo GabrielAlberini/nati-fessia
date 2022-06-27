@@ -2,7 +2,6 @@ import './Experiencia.css'
 import { Modal } from "react-bootstrap";
 
 function Experiencia(props) {
-  console.log(props);
   return (
     <Modal
       {...props}
